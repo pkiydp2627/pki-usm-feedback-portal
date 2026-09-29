@@ -73,6 +73,7 @@ export default {
       fontFamily: {
         tamil: ['"Noto Serif Tamil"', 'serif'],
         cinzel: ['"Cinzel"', 'serif'],
+        condensed: ['"Oswald"', '"Bebas Neue"', 'ui-sans-serif', 'sans-serif'],
         display: ['"Fraunces"', '"Cinzel"', 'ui-serif', 'Georgia', 'serif'],
         body: ['"Plus Jakarta Sans"', '"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
