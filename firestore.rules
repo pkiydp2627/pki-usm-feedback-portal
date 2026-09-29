@@ -1,0 +1,23 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /feedback/{feedbackId} {
+
+      // Anyone can submit feedback. No update/delete from unauthenticated clients.
+      allow create: if request.resource.data.title is string
+                    && request.resource.data.title.size() > 0
+                    && request.resource.data.description is string
+                    && request.resource.data.description.size() > 0
+                    && request.resource.data.category in
+                       ['Academic', 'Welfare', 'Sports', 'Culture', 'Facilities', 'Events', 'Others']
+                    && request.resource.data.status == 'New';
+
+      // Only signed-in committee accounts can read, update, or delete.
+      allow read: if request.auth != null;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+  }
+}
