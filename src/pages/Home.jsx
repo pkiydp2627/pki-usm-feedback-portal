@@ -56,16 +56,16 @@ export default function Home() {
         <div className="relative mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:py-18 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-20">
           <div>
             {/* Indian Cultural Sub-badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-gold-500/50 bg-cream-50 px-4 py-1.5 shadow-sm">
-              <Flame className="h-4 w-4 text-gold-500 diya-glow" />
-              <span className="font-cinzel text-xs font-bold uppercase tracking-widest text-maroon-800">
+            <div className="inline-flex items-center gap-2 rounded-full border border-maroon-900/20 bg-cream-50 px-3.5 py-1.5 shadow-xs">
+              <Flame className="h-4 w-4 text-gold-600 diya-glow" />
+              <span className="font-mono text-xs uppercase tracking-[0.22em] text-maroon-800 font-semibold">
                 Persatuan Kebudayaan India • USM
               </span>
             </div>
 
-            <h1 className="mt-5 font-display text-4xl font-bold leading-[1.12] text-maroon-950 sm:text-5xl lg:text-[54px]">
+            <h1 className="mt-5 font-condensed font-bold uppercase tracking-tight text-maroon-950 text-5xl sm:text-6xl lg:text-7xl leading-[0.88]">
               Your Voice, <br />
-              <span className="font-serif italic text-maroon-700 underline decoration-gold-400 decoration-wavy decoration-2">
+              <span className="text-[#B2382D]">
                 Our Responsibility.
               </span>
             </h1>
@@ -138,12 +138,12 @@ export default function Home() {
       {/* Seven Categories Section */}
       <section className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
         <div className="text-center">
-          <p className="eyebrow">Seven Categories • ஒரு பொது மேடை</p>
-          <h2 className="mt-2 font-display text-3xl font-bold text-maroon-950 sm:text-4xl">
+          <p className="font-mono text-xs uppercase tracking-[0.22em] text-maroon-700 font-semibold">Seven Categories • ஒரு பொது மேடை</p>
+          <h2 className="mt-2 font-condensed font-bold uppercase tracking-tight text-maroon-950 text-3xl sm:text-4xl lg:text-5xl">
             What You Can Raise
           </h2>
           <div className="mx-auto mt-3 h-0.5 w-16 bg-gradient-to-r from-transparent via-gold-500 to-transparent" />
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-maroon-900/75">
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-maroon-900/75 font-body">
             Every aspect of your USM journey matters. Select the category that best fits your concern.
           </p>
         </div>
@@ -163,10 +163,10 @@ export default function Home() {
                 <Icon className="h-6 w-6" strokeWidth={2} />
               </span>
 
-              <h3 className="mt-4 font-display text-lg font-bold text-maroon-900 group-hover:text-maroon-700 transition-colors">
+              <h3 className="mt-4 font-condensed text-xl font-bold uppercase tracking-tight text-maroon-900 group-hover:text-[#B2382D] transition-colors">
                 {label}
               </h3>
-              <p className="mt-1 text-xs leading-relaxed text-maroon-900/70">
+              <p className="mt-1 text-xs leading-relaxed text-maroon-900/70 font-body">
                 {desc}
               </p>
 
@@ -185,8 +185,8 @@ export default function Home() {
 
         <div className="relative mx-auto max-w-6xl px-5">
           <div className="text-center">
-            <p className="eyebrow">A Direct &amp; Transparent Journey</p>
-            <h2 className="mt-2 font-display text-3xl font-bold text-maroon-950 sm:text-4xl">
+            <p className="font-mono text-xs uppercase tracking-[0.22em] text-maroon-700 font-semibold">A Direct &amp; Transparent Journey</p>
+            <h2 className="mt-2 font-condensed font-bold uppercase tracking-tight text-maroon-950 text-3xl sm:text-4xl lg:text-5xl">
               From Your Words to Committee Action
             </h2>
             <div className="mx-auto mt-3 h-0.5 w-16 bg-gradient-to-r from-transparent via-gold-500 to-transparent" />
@@ -199,17 +199,17 @@ export default function Home() {
                 className="relative rounded-2xl border border-cream-300 bg-cream-50/90 p-7 shadow-sm transition-all hover:border-gold-400 hover:shadow-card"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-cinzel text-2xl font-black text-gold-600">
+                  <span className="font-condensed text-3xl font-bold text-gold-600">
                     {step.n}
                   </span>
                   <span className="rounded-full bg-maroon-100 px-2.5 py-0.5 font-tamil text-xs font-semibold text-maroon-800">
                     {step.tamil}
                   </span>
                 </div>
-                <h3 className="mt-4 font-display text-xl font-bold text-maroon-900">
+                <h3 className="mt-4 font-condensed text-2xl font-bold uppercase tracking-tight text-maroon-900">
                   {step.title}
                 </h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-maroon-900/75">
+                <p className="mt-2.5 text-sm leading-relaxed text-maroon-900/75 font-body">
                   {step.body}
                 </p>
               </div>
@@ -229,11 +229,11 @@ export default function Home() {
 
           <div className="relative z-10 flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
             <div className="max-w-xl">
-              <div className="inline-flex items-center gap-2 rounded-full bg-gold-500/20 px-3 py-1 border border-gold-400/40 text-xs font-cinzel font-bold text-gold-300 uppercase tracking-widest">
+              <div className="inline-flex items-center gap-2 rounded-full bg-gold-500/20 px-3.5 py-1 border border-gold-400/40 text-xs font-mono font-bold text-gold-300 uppercase tracking-widest">
                 <Sparkles className="h-3.5 w-3.5 text-gold-400" />
                 PKI USM 2026/2027
               </div>
-              <h2 className="mt-4 font-display text-3xl font-bold sm:text-4xl text-cream-50">
+              <h2 className="mt-4 font-condensed font-bold uppercase tracking-tight text-3xl sm:text-4xl lg:text-5xl text-cream-50">
                 Ready to make your voice count?
               </h2>
               <p className="mt-3 text-base leading-relaxed text-cream-100/80">

@@ -133,14 +133,14 @@ export default function Dashboard() {
             <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-maroon-800 text-gold-300">
               <Shield className="h-4 w-4" />
             </span>
-            <p className="font-cinzel text-xs font-bold uppercase tracking-wider text-maroon-800">
+            <p className="font-mono text-xs uppercase tracking-[0.22em] text-maroon-800 font-semibold">
               PKI Committee Portal
             </p>
           </div>
-          <h1 className="mt-1 font-display text-3xl font-bold text-maroon-950 sm:text-4xl">
+          <h1 className="mt-1 font-condensed font-bold uppercase tracking-tight text-maroon-950 text-3xl sm:text-4xl">
             Student Feedback Dashboard
           </h1>
-          <p className="mt-1 text-sm text-maroon-900/70">
+          <p className="mt-1 text-sm text-maroon-900/70 font-body">
             Signed in as <span className="font-semibold text-maroon-900">{user.email}</span>
           </p>
         </div>
@@ -164,8 +164,8 @@ export default function Dashboard() {
       <div className="mt-8 grid gap-6 lg:grid-cols-3">
         <div className="card p-6 lg:col-span-2">
           <div className="flex items-center justify-between">
-            <p className="font-display text-base font-bold text-maroon-950">Submissions Over Time</p>
-            <span className="text-xs font-semibold text-maroon-700/60 uppercase">Last 14 days</span>
+            <p className="font-condensed text-lg font-bold uppercase tracking-tight text-maroon-950">Submissions Over Time</p>
+            <span className="font-mono text-xs font-semibold text-maroon-700/60 uppercase">Last 14 days</span>
           </div>
           <div className="mt-4 h-64">
             <ResponsiveContainer width="100%" height="100%">
@@ -181,7 +181,7 @@ export default function Dashboard() {
         </div>
 
         <div className="card p-6">
-          <p className="font-display text-base font-bold text-maroon-950">By Category</p>
+          <p className="font-condensed text-lg font-bold uppercase tracking-tight text-maroon-950">By Category</p>
           <div className="mt-4 h-64">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
@@ -199,7 +199,7 @@ export default function Dashboard() {
       </div>
 
       <div className="card mt-6 p-6">
-        <p className="font-display text-base font-bold text-maroon-950">Submissions by Category</p>
+        <p className="font-condensed text-lg font-bold uppercase tracking-tight text-maroon-950">Submissions by Category</p>
         <div className="mt-4 h-56">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={categoryData}>

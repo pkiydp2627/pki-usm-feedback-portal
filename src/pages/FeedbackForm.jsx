@@ -60,17 +60,17 @@ export default function FeedbackForm() {
         <span className="flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-maroon-800 to-maroon-900 text-gold-400 border-2 border-gold-400 shadow-xl">
           <Flame className="h-10 w-10 diya-glow text-gold-400" />
         </span>
-        <div className="mt-4 flex items-center gap-1.5 text-xs font-cinzel font-bold text-gold-600 uppercase tracking-widest">
+        <div className="mt-4 flex items-center gap-1.5 text-xs font-mono font-bold text-gold-600 uppercase tracking-widest">
           <Sparkles className="h-3.5 w-3.5" />
           Submission Confirmed
         </div>
-        <h1 className="mt-3 font-display text-3xl font-bold text-maroon-950 sm:text-4xl">
+        <h1 className="mt-3 font-condensed font-bold uppercase tracking-tight text-maroon-950 text-4xl sm:text-5xl">
           Thank You
         </h1>
-        <p className="mt-2 text-base font-semibold text-maroon-800">
+        <p className="mt-2 text-base font-semibold text-maroon-800 font-body">
           Your feedback has been safely received by the PKI committee.
         </p>
-        <p className="mt-3 text-sm leading-relaxed text-maroon-900/80 max-w-md">
+        <p className="mt-3 text-sm leading-relaxed text-maroon-900/80 max-w-md font-body">
           Your feedback is now safely recorded in the PKI committee queue. If you voluntarily provided contact details, a committee representative will follow up with complete confidentiality.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -91,12 +91,12 @@ export default function FeedbackForm() {
 
       <section className="relative mx-auto max-w-2xl">
         <div className="text-center">
-          <p className="eyebrow">Student Voice Portal</p>
-          <h1 className="mt-2 font-display text-3xl font-bold text-maroon-950 sm:text-4xl">
+          <p className="font-mono text-xs uppercase tracking-[0.22em] text-maroon-700 font-semibold">Student Voice Portal</p>
+          <h1 className="mt-2 font-condensed font-bold uppercase tracking-tight text-maroon-950 text-4xl sm:text-5xl lg:text-6xl leading-[0.9]">
             Tell PKI What's on Your Mind
           </h1>
           <div className="mx-auto mt-3 h-0.5 w-16 bg-gradient-to-r from-transparent via-gold-500 to-transparent" />
-          <p className="mx-auto mt-3 text-sm leading-relaxed text-maroon-900/75 max-w-lg">
+          <p className="mx-auto mt-3 text-sm leading-relaxed text-maroon-900/75 max-w-lg font-body">
             Every submission is sacred to us. Keep it 100% anonymous, or share your contact info
             if you would appreciate a personal follow-up.
           </p>

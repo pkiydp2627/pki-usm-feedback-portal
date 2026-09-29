@@ -30,17 +30,17 @@ export default function PrivacyPolicy() {
 
       <section className="relative mx-auto max-w-3xl">
         <div className="text-center">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-gold-500/50 bg-cream-50 px-4 py-1 shadow-sm">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-maroon-900/20 bg-cream-50 px-3.5 py-1 shadow-xs">
             <ShieldCheck className="h-4 w-4 text-maroon-700" />
-            <span className="font-cinzel text-xs font-bold uppercase tracking-widest text-maroon-800">
+            <span className="font-mono text-xs uppercase tracking-[0.22em] text-maroon-800 font-semibold">
               Privacy Policy
             </span>
           </div>
-          <h1 className="mt-3 font-display text-3xl sm:text-4xl font-bold text-maroon-950">
+          <h1 className="mt-3 font-condensed font-bold uppercase tracking-tight text-maroon-950 text-4xl sm:text-5xl lg:text-6xl leading-[0.9]">
             How We Protect Your Voice
           </h1>
           <div className="mx-auto mt-3 h-0.5 w-16 bg-gradient-to-r from-transparent via-gold-500 to-transparent" />
-          <p className="mx-auto mt-3 text-sm leading-relaxed text-maroon-900/75 max-w-md">
+          <p className="mx-auto mt-3 text-sm leading-relaxed text-maroon-900/75 max-w-md font-body">
             Our sacred commitment to confidentiality, integrity, and student protection.
           </p>
         </div>
@@ -48,8 +48,8 @@ export default function PrivacyPolicy() {
         <div className="mt-10 space-y-6">
           {sections.map((s) => (
             <div key={s.title} className="card p-6 border-cream-300">
-              <h2 className="font-display text-lg font-bold text-maroon-950">{s.title}</h2>
-              <p className="mt-2 text-sm leading-relaxed text-maroon-900/80">{s.body}</p>
+              <h2 className="font-condensed text-xl font-bold uppercase tracking-tight text-maroon-950">{s.title}</h2>
+              <p className="mt-2 text-sm sm:text-base leading-relaxed text-maroon-900/80 font-body">{s.body}</p>
             </div>
           ))}
         </div>

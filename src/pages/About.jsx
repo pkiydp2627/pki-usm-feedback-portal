@@ -18,20 +18,20 @@ export default function About() {
       <section className="relative mx-auto max-w-6xl">
         {/* Page Header */}
         <div className="text-center mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-gold-500/50 bg-cream-50 px-4 py-1 shadow-sm">
-            <Flame className="h-3.5 w-3.5 text-gold-500 diya-glow" />
-            <span className="font-cinzel text-xs font-bold uppercase tracking-widest text-maroon-800">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-maroon-900/20 bg-cream-50 px-3.5 py-1 shadow-xs">
+            <Flame className="h-3.5 w-3.5 text-gold-600 diya-glow" />
+            <span className="font-mono text-xs uppercase tracking-[0.22em] text-maroon-800 font-semibold">
               About PKI USM
             </span>
           </div>
-          <h1 className="mt-3 font-display text-3xl font-bold text-maroon-950 sm:text-5xl">
+          <h1 className="mt-3 font-condensed font-bold uppercase tracking-tight text-maroon-950 text-4xl sm:text-5xl lg:text-6xl leading-[0.88]">
             Persatuan Kebudayaan India
           </h1>
-          <p className="mt-2 text-base font-semibold text-maroon-800">
+          <p className="mt-2 font-cinzel text-xs sm:text-sm font-bold tracking-[0.22em] text-maroon-800/80 uppercase">
             Indian Cultural Association • Universiti Sains Malaysia
           </p>
           <div className="mx-auto mt-3 h-0.5 w-20 bg-gradient-to-r from-transparent via-gold-500 to-transparent" />
-          <p className="mt-3 text-center max-w-2xl mx-auto text-sm leading-relaxed text-maroon-900/80">
+          <p className="mt-3 text-center max-w-2xl mx-auto text-sm sm:text-base leading-relaxed text-maroon-900/80 font-body">
             Established to represent, empower, and advocate for Indian students across every campus
             of Universiti Sains Malaysia.
           </p>
@@ -48,10 +48,10 @@ export default function About() {
 
             {/* Content Header & Body */}
             <div className="relative z-10">
-              <span className="font-display italic text-lg sm:text-xl text-maroon-700 font-semibold block">
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-maroon-700/70 font-bold block mb-1">
                 Our
               </span>
-              <h2 className="font-cinzel text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-wider text-maroon-900 mt-1">
+              <h2 className="font-condensed text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-maroon-950 mt-1">
                 VISION
               </h2>
               <div className="h-1.5 w-16 bg-gradient-to-r from-maroon-700 to-gold-500 rounded-full mt-2.5 mb-5" />
@@ -125,14 +125,14 @@ export default function About() {
 
             {/* Content Header & Body */}
             <div className="relative z-10">
-              <span className="font-display italic text-lg sm:text-xl text-maroon-700 font-semibold block">
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-maroon-700/70 font-bold block mb-1">
                 Our
               </span>
-              <h2 className="font-cinzel text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-wider text-maroon-900 mt-1">
+              <h2 className="font-condensed text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-maroon-950 mt-1">
                 MISSION
               </h2>
               <div className="h-1.5 w-16 bg-gradient-to-r from-maroon-700 to-gold-500 rounded-full mt-2.5 mb-5" />
-              <p className="text-base sm:text-lg leading-relaxed text-maroon-950/85 font-medium">
+              <p className="text-base sm:text-lg leading-relaxed text-maroon-950/85 font-medium font-body">
                 To provide accessible, swift, and technology-enabled support systems across
                 academics, welfare aid, cultural engagement, and campus facilities. We bridge students
                 directly to the university administration, ensuring every legitimate concern is met
@@ -141,9 +141,9 @@ export default function About() {
             </div>
 
             {/* Sub-badge highlighting initiative */}
-            <div className="relative z-10 mt-8 inline-flex items-center gap-2 rounded-full border border-gold-500/40 bg-white/80 px-4 py-2 shadow-sm w-fit">
+            <div className="relative z-10 mt-8 inline-flex items-center gap-2 rounded-full border border-maroon-900/20 bg-white/90 px-4 py-2 shadow-xs w-fit">
               <Sparkles className="h-4 w-4 text-gold-600" />
-              <span className="font-cinzel text-xs font-bold uppercase tracking-wider text-maroon-800">
+              <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-maroon-800">
                 Accountability • Action • Advocacy
               </span>
             </div>
@@ -159,10 +159,10 @@ export default function About() {
 
             <div className="relative z-10 grid gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
               <div>
-                <span className="font-display italic text-lg sm:text-xl text-maroon-700 font-semibold block">
+                <span className="font-mono text-xs uppercase tracking-[0.25em] text-maroon-700/70 font-bold block mb-1">
                   Our
                 </span>
-                <h2 className="font-cinzel text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-wider text-maroon-900 mt-1">
+                <h2 className="font-condensed text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-maroon-950 mt-1">
                   VALUES
                 </h2>
                 <div className="h-1.5 w-20 bg-gradient-to-r from-maroon-700 to-gold-500 rounded-full mt-2.5 mb-7" />

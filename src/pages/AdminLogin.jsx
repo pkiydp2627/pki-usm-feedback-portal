@@ -35,14 +35,14 @@ export default function AdminLogin() {
           <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-maroon-800 to-maroon-900 text-gold-400 border border-gold-500/50 shadow-lg">
             <Flame className="h-7 w-7 diya-glow text-gold-400" />
           </span>
-          <div className="mt-4 flex items-center justify-center gap-1.5 text-xs font-cinzel font-bold text-gold-600 uppercase tracking-widest">
-            <Sparkles className="h-3 w-3" />
+          <div className="mt-4 flex items-center justify-center gap-1.5 text-xs font-mono font-bold text-maroon-800 uppercase tracking-widest">
+            <Sparkles className="h-3 w-3 text-gold-600" />
             Committee Access
           </div>
-          <h1 className="mt-2 font-display text-2xl font-bold text-maroon-950 sm:text-3xl">
+          <h1 className="mt-2 font-condensed font-bold uppercase tracking-tight text-maroon-950 text-3xl sm:text-4xl">
             Committee Login
           </h1>
-          <p className="mt-2 text-xs leading-relaxed text-maroon-900/70">
+          <p className="mt-2 text-xs leading-relaxed text-maroon-900/70 font-body">
             Restricted access for PKI committee members with registered credentials.
           </p>
         </div>

@@ -82,11 +82,11 @@ body {
 }
 
 .eyebrow {
-  @apply text-xs font-cinzel font-bold uppercase tracking-[0.2em] text-maroon-700;
+  @apply text-xs font-mono font-bold uppercase tracking-[0.22em] text-maroon-700;
 }
 
 .eyebrow-gold {
-  @apply text-xs font-cinzel font-bold uppercase tracking-[0.2em] text-gold-400;
+  @apply text-xs font-mono font-bold uppercase tracking-[0.22em] text-gold-400;
 }
 
 .btn-primary {

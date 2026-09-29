@@ -15,35 +15,35 @@ export default function Footer() {
                 <Flame className="h-5 w-5 diya-glow" />
               </span>
               <div>
-                <span className="font-cinzel text-lg font-bold tracking-wide text-cream-50 block">
+                <span className="font-condensed text-xl font-bold tracking-tight text-cream-50 uppercase block">
                   Persatuan Kebudayaan India, USM
                 </span>
-                <span className="text-xs text-gold-400 block tracking-wide">
+                <span className="text-xs font-mono uppercase tracking-[0.2em] text-gold-400 block font-semibold">
                   Indian Cultural Association
                 </span>
               </div>
             </div>
 
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-cream-100/75">
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-cream-100/75 font-body">
               A sacred and direct channel for every Indian student at Universiti Sains Malaysia to
               share their voice with dignity, confidentiality, and purpose.
             </p>
 
             <div className="mt-5 rounded-xl border border-gold-500/30 bg-maroon-800/50 p-3.5 max-w-sm">
-              <p className="font-cinzel text-xs font-bold uppercase tracking-wider text-gold-300">
+              <p className="font-mono text-xs font-bold uppercase tracking-wider text-gold-300">
                 Manifesto Initiative #2
               </p>
-              <p className="mt-1 font-serif text-xs italic text-cream-100/70">
+              <p className="mt-1 font-body text-xs italic text-cream-100/70">
                 "Your Voice, Our Responsibility."
               </p>
             </div>
           </div>
 
           <div>
-            <p className="font-cinzel text-xs font-bold uppercase tracking-widest text-gold-400">
+            <p className="font-mono text-xs font-bold uppercase tracking-widest text-gold-400">
               Navigation
             </p>
-            <ul className="mt-4 space-y-2.5 text-sm text-cream-100/80">
+            <ul className="mt-4 space-y-2.5 text-sm text-cream-100/80 font-body">
               <li>
                 <Link to="/" className="hover:text-gold-300 transition-colors">
                   Home
@@ -79,7 +79,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="font-cinzel text-xs font-bold uppercase tracking-widest text-gold-400">
+            <p className="font-mono text-xs font-bold uppercase tracking-widest text-gold-400">
               Contact PKI
             </p>
             <ul className="mt-4 space-y-3 text-sm text-cream-100/80">

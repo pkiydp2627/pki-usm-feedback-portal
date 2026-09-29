@@ -24,10 +24,10 @@ export default function Navbar() {
             <Flame className="h-6 w-6 diya-glow text-gold-400" />
           </span>
           <span className="leading-tight">
-            <span className="block font-cinzel text-lg font-bold tracking-wide text-maroon-900">
+            <span className="block font-condensed text-xl font-bold tracking-tight text-maroon-900 uppercase">
               PKI USM
             </span>
-            <span className="block text-[10px] font-cinzel uppercase tracking-[0.18em] text-gold-600 font-semibold">
+            <span className="block text-[10px] font-mono uppercase tracking-[0.2em] text-gold-600 font-bold">
               Feedback Portal
             </span>
           </span>

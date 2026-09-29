@@ -74,9 +74,10 @@ export default {
         tamil: ['"Noto Serif Tamil"', 'serif'],
         cinzel: ['"Cinzel"', 'serif'],
         condensed: ['"Oswald"', '"Bebas Neue"', 'ui-sans-serif', 'sans-serif'],
-        display: ['"Fraunces"', '"Cinzel"', 'ui-serif', 'Georgia', 'serif'],
+        display: ['"Oswald"', '"Bebas Neue"', 'ui-sans-serif', 'sans-serif'],
         body: ['"Plus Jakarta Sans"', '"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+        serif: ['"Cinzel"', 'serif'],
       },
       boxShadow: {
         card: '0 2px 6px -1px rgba(90, 11, 30, 0.08), 0 10px 28px -6px rgba(90, 11, 30, 0.12)',
