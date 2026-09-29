@@ -7,84 +7,124 @@ html {
 }
 
 body {
-  @apply font-body bg-sand-100 text-ink-900 antialiased;
-}
-
-.dark body {
-  @apply bg-ink-950 text-sand-100;
+  @apply font-body bg-cream-100 text-maroon-950 antialiased;
+  background-color: #FAF5EC;
+  color: #2A030C;
 }
 
 ::selection {
-  background-color: #E8A33D;
-  color: #1B2A4A;
+  background-color: #E9CD83;
+  color: #420614;
 }
 
 :focus-visible {
-  outline: 2px solid #E8A33D;
+  outline: 2px solid #C59B27;
   outline-offset: 2px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
-  }
+/* Indian Cultural Kolam / Rangoli Motif Background */
+.bg-kolam-pattern {
+  background-color: #FAF5EC;
+  background-image: radial-gradient(#C59B27 0.75px, transparent 0.75px), radial-gradient(#751128 0.5px, #FAF5EC 0.5px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
 }
 
-/* Signature: voice-waveform motif, used as a recurring divider/accent
-   representing "Your Voice" across the site. Bars animate gently on the
-   homepage hero only; everywhere else it's static. */
-.waveform-bars {
-  display: flex;
-  align-items: flex-end;
-  gap: 4px;
-  height: 28px;
-}
-.waveform-bars span {
-  display: block;
-  width: 3px;
-  border-radius: 2px;
-  background: currentColor;
-}
-.waveform-bars.animated span {
-  animation: wave 1.6s ease-in-out infinite;
-}
-.waveform-bars span:nth-child(1) { height: 40%; animation-delay: 0s; }
-.waveform-bars span:nth-child(2) { height: 70%; animation-delay: 0.1s; }
-.waveform-bars span:nth-child(3) { height: 100%; animation-delay: 0.2s; }
-.waveform-bars span:nth-child(4) { height: 55%; animation-delay: 0.3s; }
-.waveform-bars span:nth-child(5) { height: 85%; animation-delay: 0.4s; }
-.waveform-bars span:nth-child(6) { height: 35%; animation-delay: 0.5s; }
-.waveform-bars span:nth-child(7) { height: 65%; animation-delay: 0.6s; }
-.waveform-bars span:nth-child(8) { height: 90%; animation-delay: 0.7s; }
-
-@keyframes wave {
-  0%, 100% { transform: scaleY(0.4); }
-  50% { transform: scaleY(1); }
+/* Indian Paisley & Mandala Motif Overlay */
+.bg-mandala-cream {
+  background-color: #FFFDF9;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C59B27' fill-opacity='0.08' fill-rule='evenodd'%3E%3Cpath d='M30 30c0-8.284 6.716-15 15-15s15 6.716 15 15-6.716 15-15 15-15-6.716-15-15zm-30 0c0-8.284 6.716-15 15-15s15 6.716 15 15-6.716 15-15 15-15-6.716-15-15zm30-30c0-8.284 6.716-15 15-15s15 6.716 15 15-6.716 15-15 15-15-6.716-15-15zm-30 0c0-8.284 6.716-15 15-15s15 6.716 15 15-6.716 15-15 15-15-6.716-15-15z'/%3E%3C/g%3E%3C/svg%3E");
 }
 
+.bg-mandala-maroon {
+  background-color: #5A0B1E;
+  background-image: radial-gradient(circle at 50% 50%, rgba(197, 155, 39, 0.12) 0%, transparent 70%),
+    url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23DBB353' fill-opacity='0.06' fill-rule='evenodd'%3E%3Ccircle cx='24' cy='24' r='8'/%3E%3Cpath d='M24 0l6 14-6 10-6-10zM24 48l6-14-6-10-6 10zM0 24l14 6 10-6-10-6zM48 24l-14 6-10-6 10-6z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Indian Jharokha Arch styling */
+.jharokha-arch {
+  border-radius: 40px 40px 16px 16px;
+  position: relative;
+}
+
+/* Golden Corner filigree ornament */
+.corner-ornament {
+  position: relative;
+}
+.corner-ornament::before,
+.corner-ornament::after {
+  content: '✦';
+  position: absolute;
+  font-size: 10px;
+  color: #C59B27;
+}
+.corner-ornament::before {
+  top: 8px;
+  left: 8px;
+}
+.corner-ornament::after {
+  top: 8px;
+  right: 8px;
+}
+
+/* Classical Card Style */
 .card {
-  @apply bg-white dark:bg-ink-800 border border-sand-200 dark:border-ink-700 rounded-2xl shadow-card;
+  @apply bg-white border border-cream-200 rounded-2xl shadow-card transition-all duration-200;
+}
+
+.card:hover {
+  @apply shadow-card-hover border-gold-300;
+}
+
+.card-maroon {
+  @apply bg-maroon-800 text-cream-50 border border-gold-500/40 rounded-2xl shadow-card;
 }
 
 .eyebrow {
-  @apply text-xs font-mono uppercase tracking-[0.18em] text-crimson-500 dark:text-marigold-400;
+  @apply text-xs font-cinzel font-bold uppercase tracking-[0.2em] text-maroon-700;
+}
+
+.eyebrow-gold {
+  @apply text-xs font-cinzel font-bold uppercase tracking-[0.2em] text-gold-400;
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center gap-2 rounded-full bg-crimson-500 px-6 py-3 font-semibold text-white shadow-sm transition-colors hover:bg-crimson-600 focus-visible:outline-marigold-400 disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-maroon-700 to-maroon-800 px-6 py-3 font-semibold text-cream-50 shadow-md transition-all duration-200 border border-gold-500/60 hover:from-maroon-600 hover:to-maroon-700 hover:shadow-gold focus-visible:outline-gold-500 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-gold {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold-400 to-gold-500 px-6 py-3 font-bold text-maroon-950 shadow-md transition-all duration-200 border border-gold-300 hover:from-gold-300 hover:to-gold-400 hover:shadow-md focus-visible:outline-maroon-700;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink-700/20 dark:border-sand-100/20 bg-transparent px-6 py-3 font-semibold text-ink-700 dark:text-sand-100 transition-colors hover:bg-ink-700/5 dark:hover:bg-sand-100/10;
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-maroon-800/25 bg-cream-50 px-6 py-3 font-semibold text-maroon-800 shadow-sm transition-all duration-200 hover:bg-cream-200 hover:border-maroon-700 focus-visible:outline-maroon-700;
 }
 
 .input-field {
-  @apply w-full rounded-xl border border-sand-200 dark:border-ink-700 bg-white dark:bg-ink-800 px-4 py-3 text-sm text-ink-900 dark:text-sand-100 placeholder:text-ink-700/40 dark:placeholder:text-sand-100/40 focus:border-marigold-400 focus:ring-1 focus:ring-marigold-400 outline-none transition-colors;
+  @apply w-full rounded-xl border border-cream-300 bg-white px-4 py-3 text-sm text-maroon-950 placeholder:text-maroon-900/40 focus:border-maroon-600 focus:ring-1 focus:ring-maroon-600 outline-none transition-colors;
 }
 
 .label {
-  @apply mb-1.5 block text-sm font-semibold text-ink-700 dark:text-sand-100;
+  @apply mb-1.5 block text-sm font-semibold text-maroon-900;
+}
+
+/* Tamil Kural Typewriter cursor animation */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 0.9s infinite;
+}
+
+/* Gentle Diya flame glow */
+@keyframes flame-pulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 4px #DBB353); }
+  50% { transform: scale(1.08); filter: drop-shadow(0 0 10px #C59B27); }
+}
+
+.diya-glow {
+  animation: flame-pulse 2s ease-in-out infinite;
 }

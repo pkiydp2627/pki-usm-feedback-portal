@@ -1,52 +1,86 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'class',
   content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
       colors: {
-        ink: {
-          950: '#0B1220',
-          900: '#0F1729',
-          800: '#141F38',
-          700: '#1B2A4A',
-          600: '#243560',
+        maroon: {
+          50: '#FDF4F5',
+          100: '#FBE6EB',
+          200: '#F4C8D2',
+          300: '#E99DB0',
+          400: '#D56681',
+          500: '#B83253',
+          600: '#941B37',
+          700: '#751128', // Primary deep Indian maroon
+          800: '#5A0B1E', // Royal imperial maroon
+          900: '#420614', // Deepest velvet maroon
+          950: '#2A030C',
         },
-        marigold: {
-          50: '#FDF6E9',
-          100: '#FBEBCC',
-          300: '#F0C877',
-          400: '#E8A33D',
-          500: '#DB8E23',
-          600: '#B8721A',
+        cream: {
+          50: '#FFFDF9',
+          100: '#FAF5EC', // Primary Indian silk ivory / cream
+          200: '#F3E8D3', // Sandstone cream
+          300: '#E8D5B5',
+          400: '#D9BC8F',
+          500: '#C79F67',
         },
-        crimson: {
-          50: '#FBEEF1',
-          400: '#B4405C',
-          500: '#8B1E3F',
-          600: '#701731',
-          700: '#571025',
-        },
-        sand: {
-          50: '#FBF8F2',
-          100: '#FAF7F2',
-          200: '#F1EBDD',
+        gold: {
+          50: '#FDFBF4',
+          100: '#FAF3DE',
+          200: '#F3E4B5',
+          300: '#E9CD83',
+          400: '#DBB353',
+          500: '#C59B27', // Antique temple gold
+          600: '#A77D18',
+          700: '#825F11',
         },
         leaf: {
-          500: '#2F855A',
-          600: '#276749',
+          50: '#F0F9F4',
+          100: '#DCF1E5',
+          500: '#2D6A4F',
+          600: '#1B4332',
+        },
+        // Backwards compatibility aliases to preserve components
+        sand: {
+          50: '#FFFDF9',
+          100: '#FAF5EC',
+          200: '#F3E8D3',
+        },
+        crimson: {
+          50: '#FDF4F5',
+          400: '#D56681',
+          500: '#751128',
+          600: '#5A0B1E',
+          700: '#420614',
+        },
+        marigold: {
+          50: '#FAF3DE',
+          100: '#F3E4B5',
+          300: '#E9CD83',
+          400: '#DBB353',
+          500: '#C59B27',
+          600: '#A77D18',
+        },
+        ink: {
+          600: '#751128',
+          700: '#5A0B1E',
+          800: '#420614',
+          900: '#2A030C',
+          950: '#1D0208',
         },
       },
       fontFamily: {
-        display: ['"Fraunces"', 'ui-serif', 'Georgia', 'serif'],
-        body: ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        tamil: ['"Noto Serif Tamil"', 'serif'],
+        cinzel: ['"Cinzel"', 'serif'],
+        display: ['"Fraunces"', '"Cinzel"', 'ui-serif', 'Georgia', 'serif'],
+        body: ['"Plus Jakarta Sans"', '"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
-      backgroundImage: {
-        waveform: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='24' viewBox='0 0 120 24'%3E%3C/svg%3E\")",
-      },
       boxShadow: {
-        card: '0 1px 2px rgba(15,23,41,0.06), 0 8px 24px -12px rgba(15,23,41,0.18)',
+        card: '0 2px 6px -1px rgba(90, 11, 30, 0.08), 0 10px 28px -6px rgba(90, 11, 30, 0.12)',
+        'card-hover': '0 4px 12px -2px rgba(90, 11, 30, 0.12), 0 18px 36px -8px rgba(90, 11, 30, 0.18)',
+        gold: '0 0 18px rgba(197, 155, 39, 0.35)',
       },
     },
   },

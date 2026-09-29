@@ -13,7 +13,7 @@ import NotFound from './pages/NotFound.jsx';
 
 export default function App() {
   return (
-    <div className="flex min-h-screen flex-col bg-sand-100 dark:bg-ink-950 transition-colors">
+    <div className="flex min-h-screen flex-col bg-cream-100 text-maroon-950 font-body antialiased">
       <Navbar />
       <main className="flex-1">
         <Routes>

@@ -1,30 +1,30 @@
 import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, HelpCircle, Sparkles } from 'lucide-react';
 
 const faqs = [
   {
-    q: 'Is my feedback really anonymous?',
-    a: 'Yes. If you tick "Submit this anonymously" (checked by default), no name, matric number, or email is saved with your submission. We only store the category, title, and details you write.',
+    q: 'Is my feedback truly 100% anonymous?',
+    a: 'Yes, absolutely. When the "Submit this anonymously" option is selected (checked by default), no name, matric number, email, or IP identity is ever saved in Firestore. We strictly store only the feedback content and category.',
   },
   {
-    q: 'Can the committee still identify me if I stay anonymous?',
-    a: 'No. Anonymous submissions are stored without any identifying fields at all \u2014 there is nothing in the database to trace back to you.',
+    q: 'Can PKI committee or USM administration trace anonymous feedback?',
+    a: 'No. Anonymous entries simply do not contain identifying fields in the database. There is no technical mechanism to trace the submission back to you.',
   },
   {
-    q: 'Will I get a response to my feedback?',
-    a: 'If you left an email address, the committee may follow up directly. If you submitted anonymously, you won\u2019t receive a personal reply, but your submission is still reviewed and tracked to resolution.',
+    q: 'Will I receive a personal response?',
+    a: 'If you choose to leave your email or phone number, a PKI committee representative may contact you discreetly to offer support or update you on progress. If you submit anonymously, your concern will still be addressed in committee meetings and tracked through to resolution.',
   },
   {
-    q: 'How long does it take for feedback to be addressed?',
-    a: 'It varies by category and complexity. Every submission is marked New, then In Progress once a committee member picks it up, and finally Resolved.',
+    q: 'What kind of topics can I submit?',
+    a: 'Anything impacting your student journey at USM: academic struggles, coursework, welfare & financial aid, mental health, hostel or bus facilities, cultural practices, sports tournaments, and general campus feedback.',
   },
   {
-    q: 'What kind of feedback can I submit?',
-    a: 'Anything relevant to student life: academic concerns, welfare and wellbeing, sports facilities and teams, cultural events, campus facilities, PKI-organised events, or anything else on your mind.',
+    q: 'Who can read my submission?',
+    a: 'Only authenticated, registered PKI executive committee members with secured Firebase credentials can access the committee dashboard. The submissions are never displayed publicly.',
   },
   {
-    q: 'Who can see my submission?',
-    a: 'Only PKI committee members with a registered dashboard login can see submissions and any contact details you provide. Nothing you submit is shown publicly anywhere on the site.',
+    q: 'Why was this platform built under Manifesto Initiative #2?',
+    a: 'PKI believes in listening with humility and acting with strength. The name "குரல்" (Kural) reflects Thirukkural 411: "செல்வத்துள் செல்வம் செவிச்செல்வம்" — that listening to our community is the highest wealth and honor.',
   },
 ];
 
@@ -32,35 +32,56 @@ export default function FAQ() {
   const [open, setOpen] = useState(0);
 
   return (
-    <section className="mx-auto max-w-3xl px-5 py-16">
-      <p className="eyebrow">FAQ</p>
-      <h1 className="mt-2 font-display text-3xl font-semibold text-ink-900 dark:text-sand-100">
-        Frequently Asked Questions
-      </h1>
-      <p className="mt-3 text-sm leading-relaxed text-ink-700/75 dark:text-sand-100/70">
-        Everything you need to know before submitting feedback.
-      </p>
+    <div className="relative py-16 px-5">
+      <div className="pointer-events-none absolute inset-0 bg-kolam-pattern opacity-30" />
 
-      <div className="mt-8 space-y-3">
-        {faqs.map((item, i) => (
-          <div key={item.q} className="card overflow-hidden">
-            <button
-              onClick={() => setOpen(open === i ? -1 : i)}
-              className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
-            >
-              <span className="font-semibold text-ink-900 dark:text-sand-100">{item.q}</span>
-              <ChevronDown
-                className={`h-4 w-4 shrink-0 text-ink-700/50 transition-transform dark:text-sand-100/50 ${open === i ? 'rotate-180' : ''}`}
-              />
-            </button>
-            {open === i && (
-              <p className="px-5 pb-5 text-sm leading-relaxed text-ink-700/75 dark:text-sand-100/70">
-                {item.a}
-              </p>
-            )}
+      <section className="relative mx-auto max-w-3xl">
+        <div className="text-center">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-gold-500/50 bg-cream-50 px-4 py-1 shadow-sm">
+            <HelpCircle className="h-3.5 w-3.5 text-gold-500" />
+            <span className="font-cinzel text-xs font-bold uppercase tracking-widest text-maroon-800">
+              Frequently Asked Questions • வினாடி வினா
+            </span>
           </div>
-        ))}
-      </div>
-    </section>
+          <h1 className="mt-3 font-display text-3xl font-bold text-maroon-950 sm:text-4xl">
+            Everything You Need to Know
+          </h1>
+          <div className="mx-auto mt-3 h-0.5 w-16 bg-gradient-to-r from-transparent via-gold-500 to-transparent" />
+          <p className="mx-auto mt-3 text-sm leading-relaxed text-maroon-900/75 max-w-md">
+            Common questions regarding confidentiality, submission handling, and our committee process.
+          </p>
+        </div>
+
+        <div className="mt-10 space-y-4">
+          {faqs.map((item, i) => (
+            <div
+              key={item.q}
+              className="card overflow-hidden transition-all duration-200 hover:border-gold-400"
+            >
+              <button
+                onClick={() => setOpen(open === i ? -1 : i)}
+                className="flex w-full items-center justify-between gap-4 p-5 text-left"
+              >
+                <span className="font-display font-bold text-base sm:text-lg text-maroon-950">
+                  {item.q}
+                </span>
+                <ChevronDown
+                  className={`h-5 w-5 shrink-0 text-maroon-700 transition-transform ${
+                    open === i ? 'rotate-180 text-gold-600' : ''
+                  }`}
+                />
+              </button>
+              {open === i && (
+                <div className="border-t border-cream-200 bg-cream-50/50 p-5 pt-3">
+                  <p className="text-sm leading-relaxed text-maroon-900/80 font-normal">
+                    {item.a}
+                  </p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
   );
 }

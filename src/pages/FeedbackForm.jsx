@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { CheckCircle2, ShieldCheck, Loader2, ArrowRight } from 'lucide-react';
+import { CheckCircle2, ShieldCheck, Loader2, ArrowRight, Sparkles, Flame, Lock } from 'lucide-react';
 import { submitFeedback } from '../lib/feedbackService.js';
 
 const CATEGORIES = ['Academic', 'Welfare', 'Sports', 'Culture', 'Facilities', 'Events', 'Others'];
@@ -56,22 +56,29 @@ export default function FeedbackForm() {
   if (status === 'success') {
     return (
       <section className="mx-auto flex max-w-xl flex-col items-center px-5 py-24 text-center">
-        <span className="flex h-16 w-16 items-center justify-center rounded-full bg-leaf-500/10 text-leaf-500">
-          <CheckCircle2 className="h-9 w-9" />
+        {/* Decorative Diya */}
+        <span className="flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-maroon-800 to-maroon-900 text-gold-400 border-2 border-gold-400 shadow-xl">
+          <Flame className="h-10 w-10 diya-glow text-gold-400" />
         </span>
-        <h1 className="mt-6 font-display text-2xl font-semibold text-ink-900 dark:text-sand-100">
-          Thank you — your feedback has been received.
+        <div className="mt-4 flex items-center gap-1.5 text-xs font-cinzel font-bold text-gold-600 uppercase tracking-widest">
+          <Sparkles className="h-3.5 w-3.5" />
+          கருத்து பெறப்பட்டது • Received
+        </div>
+        <h1 className="mt-3 font-display text-3xl font-bold text-maroon-950 sm:text-4xl">
+          நன்றி • Thank You
         </h1>
-        <p className="mt-3 text-sm leading-relaxed text-ink-700/75 dark:text-sand-100/70">
-          It's now in the committee's queue. If you left contact details, someone from PKI may
-          follow up.
+        <p className="mt-2 font-tamil text-base font-semibold text-maroon-800">
+          உங்களின் குரல் பாதுகாப்பாக PKI செயற்குழுவை அடைந்துள்ளது.
         </p>
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
+        <p className="mt-3 text-sm leading-relaxed text-maroon-900/80 max-w-md">
+          Your feedback is now safely recorded in the PKI committee queue. If you voluntarily provided contact details, a committee representative will follow up with complete confidentiality.
+        </p>
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
           <button onClick={() => setStatus('idle')} className="btn-primary">
-            Submit another response
+            Submit Another Feedback • மற்றொரு கருத்து
           </button>
           <Link to="/" className="btn-secondary">
-            Back to Home
+            Return to Home
           </Link>
         </div>
       </section>
@@ -79,151 +86,181 @@ export default function FeedbackForm() {
   }
 
   return (
-    <section className="mx-auto max-w-2xl px-5 py-14">
-      <p className="eyebrow">Feedback Form</p>
-      <h1 className="mt-2 font-display text-3xl font-semibold text-ink-900 dark:text-sand-100">
-        Tell PKI what's on your mind
-      </h1>
-      <p className="mt-3 text-sm leading-relaxed text-ink-700/75 dark:text-sand-100/70">
-        Every field except your feedback itself is optional. Leave your name blank and stay
-        completely anonymous, or add contact details if you'd like a personal follow-up.
-      </p>
+    <div className="relative overflow-hidden py-14 px-5">
+      <div className="pointer-events-none absolute inset-0 bg-kolam-pattern opacity-30" />
 
-      <form onSubmit={handleSubmit} noValidate className="card mt-8 space-y-6 p-6 sm:p-8">
-        <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-marigold-400/40 bg-marigold-50 dark:bg-marigold-400/10 p-4">
-          <input
-            type="checkbox"
-            checked={form.isAnonymous}
-            onChange={(e) => update('isAnonymous', e.target.checked)}
-            className="mt-0.5 h-4 w-4 rounded border-ink-700/30 text-crimson-500 focus:ring-marigold-400"
-          />
-          <span>
-            <span className="block text-sm font-semibold text-ink-900 dark:text-sand-100">
-              Submit this anonymously
-            </span>
-            <span className="block text-xs text-ink-700/70 dark:text-sand-100/65">
-              When checked, your name, matric number, phone number, and email are not saved with
-              this submission.
-            </span>
-          </span>
-        </label>
+      <section className="relative mx-auto max-w-2xl">
+        <div className="text-center">
+          <p className="eyebrow">Student Voice Portal • குரல் கொடுங்கள்</p>
+          <h1 className="mt-2 font-display text-3xl font-bold text-maroon-950 sm:text-4xl">
+            Tell PKI What's on Your Mind
+          </h1>
+          <div className="mx-auto mt-3 h-0.5 w-16 bg-gradient-to-r from-transparent via-gold-500 to-transparent" />
+          <p className="mx-auto mt-3 text-sm leading-relaxed text-maroon-900/75 max-w-lg">
+            Every submission is sacred to us. Keep it 100% anonymous, or share your contact info
+            if you would appreciate a personal follow-up.
+          </p>
+        </div>
 
-        {!form.isAnonymous && (
-          <div className="grid gap-5 sm:grid-cols-2">
+        <form
+          onSubmit={handleSubmit}
+          noValidate
+          className="relative mt-8 rounded-3xl border-2 border-gold-500/40 bg-white/95 p-6 sm:p-10 shadow-xl backdrop-blur space-y-6"
+        >
+          {/* Ornate corner ornaments */}
+          <div className="pointer-events-none absolute left-3 top-3 text-gold-500/70 text-xs">✦</div>
+          <div className="pointer-events-none absolute right-3 top-3 text-gold-500/70 text-xs">✦</div>
+          <div className="pointer-events-none absolute bottom-3 left-3 text-gold-500/70 text-xs">✦</div>
+          <div className="pointer-events-none absolute bottom-3 right-3 text-gold-500/70 text-xs">✦</div>
+
+          {/* Anonymity Banner */}
+          <label className="flex cursor-pointer items-start gap-3.5 rounded-2xl border-2 border-gold-400/50 bg-gradient-to-r from-cream-50 via-gold-50/40 to-cream-50 p-4 transition-colors hover:border-gold-500">
+            <input
+              type="checkbox"
+              checked={form.isAnonymous}
+              onChange={(e) => update('isAnonymous', e.target.checked)}
+              className="mt-1 h-5 w-5 rounded border-maroon-800 text-maroon-700 focus:ring-gold-400 accent-maroon-700"
+            />
             <div>
-              <label className="label" htmlFor="name">Name (Optional)</label>
-              <input
-                id="name"
-                type="text"
-                className="input-field"
-                placeholder="Your full name"
-                value={form.name}
-                onChange={(e) => update('name', e.target.value)}
-              />
+              <span className="flex items-center gap-1.5 text-sm font-bold text-maroon-900">
+                <Lock className="h-4 w-4 text-maroon-700" />
+                Submit this anonymously (முழு அநாமதேயம்)
+              </span>
+              <span className="block text-xs leading-relaxed text-maroon-900/70 mt-0.5">
+                When checked, your name, matric number, and contact info are NEVER recorded or transmitted.
+              </span>
             </div>
-            <div>
-              <label className="label" htmlFor="matric">Matric Number (Optional)</label>
-              <input
-                id="matric"
-                type="text"
-                className="input-field font-mono"
-                placeholder="e.g. 123456"
-                value={form.matricNumber}
-                onChange={(e) => update('matricNumber', e.target.value)}
-              />
+          </label>
+
+          {/* Conditional Name and Contact Fields */}
+          {!form.isAnonymous && (
+            <div className="grid gap-5 sm:grid-cols-2 rounded-2xl border border-cream-300 bg-cream-50/70 p-5">
+              <div>
+                <label className="label" htmlFor="name">Full Name (Optional)</label>
+                <input
+                  id="name"
+                  type="text"
+                  className="input-field"
+                  placeholder="e.g. Priyanth"
+                  value={form.name}
+                  onChange={(e) => update('name', e.target.value)}
+                />
+              </div>
+              <div>
+                <label className="label" htmlFor="matric">Matric Number (Optional)</label>
+                <input
+                  id="matric"
+                  type="text"
+                  className="input-field font-mono"
+                  placeholder="e.g. 159823"
+                  value={form.matricNumber}
+                  onChange={(e) => update('matricNumber', e.target.value)}
+                />
+              </div>
+              <div>
+                <label className="label" htmlFor="phone">Phone Number (Optional)</label>
+                <input
+                  id="phone"
+                  type="tel"
+                  className="input-field"
+                  placeholder="+60 12-345 6789"
+                  value={form.phone}
+                  onChange={(e) => update('phone', e.target.value)}
+                />
+                {errors.phone && <p className="mt-1 text-xs font-semibold text-maroon-600">{errors.phone}</p>}
+              </div>
+              <div>
+                <label className="label" htmlFor="email">Email Address (Optional)</label>
+                <input
+                  id="email"
+                  type="email"
+                  className="input-field"
+                  placeholder="you@student.usm.my"
+                  value={form.email}
+                  onChange={(e) => update('email', e.target.value)}
+                />
+                {errors.email && <p className="mt-1 text-xs font-semibold text-maroon-600">{errors.email}</p>}
+              </div>
             </div>
-            <div>
-              <label className="label" htmlFor="phone">Phone Number (Optional)</label>
-              <input
-                id="phone"
-                type="tel"
-                className="input-field"
-                placeholder="+60 12-345 6789"
-                value={form.phone}
-                onChange={(e) => update('phone', e.target.value)}
-              />
-              {errors.phone && <p className="mt-1.5 text-xs font-medium text-crimson-500">{errors.phone}</p>}
-            </div>
-            <div>
-              <label className="label" htmlFor="email">Email (Optional)</label>
-              <input
-                id="email"
-                type="email"
-                className="input-field"
-                placeholder="you@student.usm.my"
-                value={form.email}
-                onChange={(e) => update('email', e.target.value)}
-              />
-              {errors.email && <p className="mt-1.5 text-xs font-medium text-crimson-500">{errors.email}</p>}
-            </div>
+          )}
+
+          {/* Category Dropdown */}
+          <div>
+            <label className="label" htmlFor="category">Category • பிரிவு</label>
+            <select
+              id="category"
+              className="input-field font-medium cursor-pointer"
+              value={form.category}
+              onChange={(e) => update('category', e.target.value)}
+            >
+              <option value="">Select a category / பிரிவைத் தேர்ந்தெடுக்கவும்…</option>
+              {CATEGORIES.map((c) => (
+                <option key={c} value={c}>{c}</option>
+              ))}
+            </select>
+            {errors.category && <p className="mt-1.5 text-xs font-semibold text-maroon-600">{errors.category}</p>}
           </div>
-        )}
 
-        <div>
-          <label className="label" htmlFor="category">Category</label>
-          <select
-            id="category"
-            className="input-field"
-            value={form.category}
-            onChange={(e) => update('category', e.target.value)}
-          >
-            <option value="">Select a category…</option>
-            {CATEGORIES.map((c) => (
-              <option key={c} value={c}>{c}</option>
-            ))}
-          </select>
-          {errors.category && <p className="mt-1.5 text-xs font-medium text-crimson-500">{errors.category}</p>}
-        </div>
+          {/* Title */}
+          <div>
+            <label className="label" htmlFor="title">Feedback Subject • தலைப்பு</label>
+            <input
+              id="title"
+              type="text"
+              className="input-field"
+              placeholder="e.g. Indian cultural dance rehearsal space / Library resources"
+              value={form.title}
+              onChange={(e) => update('title', e.target.value)}
+            />
+            {errors.title && <p className="mt-1.5 text-xs font-semibold text-maroon-600">{errors.title}</p>}
+          </div>
 
-        <div>
-          <label className="label" htmlFor="title">Feedback Title</label>
-          <input
-            id="title"
-            type="text"
-            className="input-field"
-            placeholder="Sum it up in a few words"
-            value={form.title}
-            onChange={(e) => update('title', e.target.value)}
-          />
-          {errors.title && <p className="mt-1.5 text-xs font-medium text-crimson-500">{errors.title}</p>}
-        </div>
+          {/* Detailed description */}
+          <div>
+            <label className="label" htmlFor="description">Detailed Feedback • விரிவான கருத்து</label>
+            <textarea
+              id="description"
+              rows={6}
+              className="input-field resize-none leading-relaxed"
+              placeholder="Share as much detail as you're comfortable with. Everything you write is strictly confidential..."
+              value={form.description}
+              onChange={(e) => update('description', e.target.value)}
+            />
+            {errors.description && <p className="mt-1.5 text-xs font-semibold text-maroon-600">{errors.description}</p>}
+          </div>
 
-        <div>
-          <label className="label" htmlFor="description">Detailed Feedback</label>
-          <textarea
-            id="description"
-            rows={6}
-            className="input-field resize-none"
-            placeholder="Share as much detail as you're comfortable with…"
-            value={form.description}
-            onChange={(e) => update('description', e.target.value)}
-          />
-          {errors.description && <p className="mt-1.5 text-xs font-medium text-crimson-500">{errors.description}</p>}
-        </div>
+          {status === 'error' && (
+            <div className="rounded-xl border border-maroon-300 bg-maroon-50 p-4 text-sm font-semibold text-maroon-800">
+              Something went wrong sending your feedback. Please check your connection and try again.
+            </div>
+          )}
 
-        {status === 'error' && (
-          <p className="rounded-lg bg-crimson-50 px-4 py-3 text-sm font-medium text-crimson-600 dark:bg-crimson-500/10 dark:text-crimson-400">
-            Something went wrong sending your feedback. Please try again in a moment.
-          </p>
-        )}
-
-        <div className="flex items-center justify-between gap-4 border-t border-sand-200 dark:border-ink-700 pt-6">
-          <p className="flex items-center gap-1.5 text-xs text-ink-700/60 dark:text-sand-100/55">
-            <ShieldCheck className="h-4 w-4" /> Encrypted in transit &amp; storage
-          </p>
-          <button type="submit" disabled={status === 'submitting'} className="btn-primary">
-            {status === 'submitting' ? (
-              <>
-                <Loader2 className="h-4 w-4 animate-spin" /> Submitting…
-              </>
-            ) : (
-              <>
-                Submit <ArrowRight className="h-4 w-4" />
-              </>
-            )}
-          </button>
-        </div>
-      </form>
-    </section>
+          {/* Footer Submit Action */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-cream-200 pt-6">
+            <p className="flex items-center gap-1.5 text-xs text-maroon-900/70">
+              <ShieldCheck className="h-4 w-4 text-maroon-700" />
+              <span>Firebase Encrypted in Transit &amp; Cloudflare Protected</span>
+            </p>
+            <button
+              type="submit"
+              disabled={status === 'submitting'}
+              className="btn-primary w-full sm:w-auto"
+            >
+              {status === 'submitting' ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin text-gold-300" />
+                  <span>Submitting...</span>
+                </>
+              ) : (
+                <>
+                  <span>Submit Feedback • சமர்ப்பி</span>
+                  <ArrowRight className="h-4 w-4" />
+                </>
+              )}
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
   );
 }

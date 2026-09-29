@@ -1,15 +1,4 @@
-// Firebase configuration template
-//
-// 1. Create a project at https://console.firebase.google.com
-// 2. Enable Firestore Database (start in production mode) and Authentication
-//    (Email/Password provider, used only for the committee/admin login).
-// 3. Copy .env.example to .env and fill in the values from
-//    Project settings > General > Your apps > SDK setup and configuration.
-// 4. Deploy the security rules in firestore.rules (see project root) so
-//    students can only create feedback, never read/edit/delete it, and only
-//    authenticated committee accounts can read and update it.
-
-import { initializeApp } from 'firebase/app';
+import { initializeApp, getApps } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 
@@ -22,7 +11,13 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-const app = initializeApp(firebaseConfig);
+if (!firebaseConfig.apiKey && typeof window !== 'undefined') {
+  console.warn(
+    '[PKI Portal] Missing VITE_FIREBASE_API_KEY. If deployed to Cloudflare Pages, make sure to add your VITE_FIREBASE_* environment variables under Project Settings -> Environment variables.'
+  );
+}
+
+const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
 
 export const db = getFirestore(app);
 export const auth = getAuth(app);

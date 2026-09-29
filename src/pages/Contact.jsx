@@ -1,70 +1,93 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Phone, Instagram, Mail } from 'lucide-react';
+import { ArrowRight, Phone, Instagram, Mail, Flame, Sparkles } from 'lucide-react';
 
-// 👉 Fill in your real details here
 const myDetails = {
-  position: 'PKI President',   // e.g. 'PKI President'
-  phone: '+60 11-2966 8254',          // e.g. '+60 12-345 6789'
-  instagram: '_sahen.kathi_',  // e.g. '@yourhandle'
-  email: 'pki.ydp2627@gmail.com',          // e.g. 'yourname@studentassociation.my'
+  position: 'PKI President • தலைவர்',
+  phone: '+60 11-2966 8254',
+  instagram: '_sahen.kathi_',
+  email: 'pki.ydp2627@gmail.com',
 };
 
 export default function Contact() {
   return (
-    <section className="mx-auto max-w-4xl px-5 py-24 text-center">
-      <p className="eyebrow">Contact</p>
+    <div className="relative py-16 px-5">
+      <div className="pointer-events-none absolute inset-0 bg-kolam-pattern opacity-30" />
 
-      <h1
-        className="mt-5 font-display font-semibold text-ink-900 dark:text-sand-100"
-        style={{ fontSize: '65px', lineHeight: 1.02 }}
-      >
-        Get in touch
-      </h1>
-      <p className="mx-auto mt-4 max-w-sm text-base text-ink-700/70 dark:text-sand-100/65">
-        Your voice matters to us — reach out anytime, we're here to listen.
-      </p>
-
-      <p
-        className="mt-16 font-display italic text-crimson-500 dark:text-marigold-400"
-        style={{ fontSize: '38px' }}
-      >
-        {myDetails.position}
-      </p>
-
-      <div className="mx-auto mt-4 grid gap-6 sm:grid-cols-3">
-        <div className="card flex flex-col items-center gap-1 px-5 py-7">
-          <span className="flex h-11 w-11 items-center justify-center rounded-full bg-crimson-50 text-crimson-500 dark:bg-crimson-500/15 dark:text-crimson-400">
-            <Phone className="h-9 w-9" strokeWidth={2} />
+      <section className="relative mx-auto max-w-4xl text-center">
+        <div className="inline-flex items-center gap-1.5 rounded-full border border-gold-500/50 bg-cream-50 px-4 py-1 shadow-sm">
+          <Flame className="h-3.5 w-3.5 text-gold-500 diya-glow" />
+          <span className="font-cinzel text-xs font-bold uppercase tracking-widest text-maroon-800">
+            Reach Out • தொடர்புக்கு
           </span>
-          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-crimson-500 dark:text-marigold-400">Phone</p>
-          <p className="text-base font-semibold text-ink-900 dark:text-sand-100">{myDetails.phone}</p>
         </div>
 
-        <div className="card flex flex-col items-center gap-1 px-5 py-7">
-          <span className="flex h-11 w-11 items-center justify-center rounded-full bg-crimson-50 text-crimson-500 dark:bg-crimson-500/15 dark:text-crimson-400">
-            <Instagram className="h-9 w-9" strokeWidth={2} />
-          </span>
-          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-crimson-500 dark:text-marigold-400">Instagram</p>
-          <p className="text-base font-semibold text-ink-900 dark:text-sand-100">{myDetails.instagram}</p>
-        </div>
-
-        <div className="card flex flex-col items-center gap-1 px-5 py-7">
-          <span className="flex h-11 w-11 items-center justify-center rounded-full bg-crimson-50 text-crimson-500 dark:bg-crimson-500/15 dark:text-crimson-400">
-            <Mail className="h-9 w-9" strokeWidth={2} />
-          </span>
-          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-crimson-500 dark:text-marigold-400">Email</p>
-          <p className="break-all text-base font-semibold text-ink-900 dark:text-sand-100">{myDetails.email}</p>
-        </div>
-      </div>
-
-      <div style={{ marginTop: '96px' }}>
-        <p className="text-sm text-ink-700/70 dark:text-sand-100/65">
-          Prefer to stay anonymous? You can still be heard.
+        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-bold text-maroon-950">
+          We Are Here to Listen
+        </h1>
+        <div className="mx-auto mt-3 h-0.5 w-16 bg-gradient-to-r from-transparent via-gold-500 to-transparent" />
+        <p className="mx-auto mt-3 max-w-md text-base leading-relaxed text-maroon-900/75">
+          Your thoughts and concerns matter deeply to us. Feel free to connect directly or use the anonymous feedback form.
         </p>
-        <Link to="/feedback" className="btn-primary mt-4">
-          Submit Feedback <ArrowRight className="h-4 w-4" />
-        </Link>
-      </div>
-    </section>
+
+        <div className="mt-12 inline-block rounded-2xl bg-maroon-800/10 px-5 py-2 border border-gold-500/30">
+          <p className="font-cinzel text-sm sm:text-base font-bold uppercase tracking-wider text-maroon-800">
+            {myDetails.position}
+          </p>
+        </div>
+
+        <div className="mx-auto mt-8 grid gap-6 sm:grid-cols-3 max-w-3xl">
+          {/* Phone */}
+          <div className="card flex flex-col items-center gap-2 p-6 transition-all hover:-translate-y-1 hover:border-gold-400">
+            <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-maroon-700 to-maroon-900 text-gold-300 shadow-sm border border-gold-500/30">
+              <Phone className="h-6 w-6" strokeWidth={2} />
+            </span>
+            <p className="font-cinzel text-xs font-bold uppercase tracking-widest text-maroon-700">Phone</p>
+            <a href={`tel:${myDetails.phone}`} className="text-base font-bold text-maroon-950 hover:text-maroon-700 transition-colors">
+              {myDetails.phone}
+            </a>
+          </div>
+
+          {/* Instagram */}
+          <div className="card flex flex-col items-center gap-2 p-6 transition-all hover:-translate-y-1 hover:border-gold-400">
+            <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-maroon-700 to-maroon-900 text-gold-300 shadow-sm border border-gold-500/30">
+              <Instagram className="h-6 w-6" strokeWidth={2} />
+            </span>
+            <p className="font-cinzel text-xs font-bold uppercase tracking-widest text-maroon-700">Instagram</p>
+            <a
+              href={`https://instagram.com/${myDetails.instagram}`}
+              target="_blank"
+              rel="noreferrer"
+              className="text-base font-bold text-maroon-950 hover:text-maroon-700 transition-colors"
+            >
+              @{myDetails.instagram}
+            </a>
+          </div>
+
+          {/* Email */}
+          <div className="card flex flex-col items-center gap-2 p-6 transition-all hover:-translate-y-1 hover:border-gold-400">
+            <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-maroon-700 to-maroon-900 text-gold-300 shadow-sm border border-gold-500/30">
+              <Mail className="h-6 w-6" strokeWidth={2} />
+            </span>
+            <p className="font-cinzel text-xs font-bold uppercase tracking-widest text-maroon-700">Email</p>
+            <a
+              href={`mailto:${myDetails.email}`}
+              className="text-sm font-bold text-maroon-950 hover:text-maroon-700 break-all transition-colors"
+            >
+              {myDetails.email}
+            </a>
+          </div>
+        </div>
+
+        <div className="mt-14">
+          <p className="text-sm text-maroon-900/75">
+            Prefer to voice out without revealing your name?
+          </p>
+          <Link to="/feedback" className="btn-primary mt-4">
+            <span>Submit Anonymous Feedback</span>
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </section>
+    </div>
   );
 }
