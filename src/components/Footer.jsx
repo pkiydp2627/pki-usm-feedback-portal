@@ -18,8 +18,8 @@ export default function Footer() {
                 <span className="font-cinzel text-lg font-bold tracking-wide text-cream-50 block">
                   Persatuan Kebudayaan India, USM
                 </span>
-                <span className="font-tamil text-xs text-gold-400 block">
-                  இந்திய கலாச்சார சங்கம் • யு.எஸ்.எம்
+                <span className="text-xs text-gold-400 block tracking-wide">
+                  Indian Cultural Association
                 </span>
               </div>
             </div>
@@ -30,8 +30,8 @@ export default function Footer() {
             </p>
 
             <div className="mt-5 rounded-xl border border-gold-500/30 bg-maroon-800/50 p-3.5 max-w-sm">
-              <p className="font-tamil text-sm font-semibold text-gold-300">
-                "செல்வத்துள் செல்வம் செவிச்செல்வம் அச்செல்வம் செல்வத்துள் எல்லாம் தலை."
+              <p className="font-cinzel text-xs font-bold uppercase tracking-wider text-gold-300">
+                Manifesto Initiative #2
               </p>
               <p className="mt-1 font-serif text-xs italic text-cream-100/70">
                 "Your Voice, Our Responsibility."
@@ -46,27 +46,27 @@ export default function Footer() {
             <ul className="mt-4 space-y-2.5 text-sm text-cream-100/80">
               <li>
                 <Link to="/" className="hover:text-gold-300 transition-colors">
-                  Home • முகப்பு
+                  Home
                 </Link>
               </li>
               <li>
                 <Link to="/feedback" className="hover:text-gold-300 transition-colors">
-                  Submit Feedback • கருத்து
+                  Submit Feedback
                 </Link>
               </li>
               <li>
                 <Link to="/about" className="hover:text-gold-300 transition-colors">
-                  About PKI • எங்களைப் பற்றி
+                  About PKI
                 </Link>
               </li>
               <li>
                 <Link to="/faq" className="hover:text-gold-300 transition-colors">
-                  FAQ • வினாடி வினா
+                  FAQ
                 </Link>
               </li>
               <li>
                 <Link to="/privacy" className="hover:text-gold-300 transition-colors">
-                  Privacy Policy • தனியுரிமை
+                  Privacy Policy
                 </Link>
               </li>
               <li>
@@ -98,7 +98,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-gold-500/20 pt-8 text-xs text-cream-100/60 sm:flex-row">
-          <p>&copy; {new Date().getFullYear()} PKI USM. Manifesto Initiative #2 • KURAL (குரல்).</p>
+          <p>&copy; {new Date().getFullYear()} PKI USM. Manifesto Initiative #2 • KURAL.</p>
           <p className="flex items-center gap-1">
             <Sparkles className="h-3 w-3 text-gold-400" />
             <span>Built for trust, transparency, and Indian student empowerment.</span>

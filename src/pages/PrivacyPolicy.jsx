@@ -33,7 +33,7 @@ export default function PrivacyPolicy() {
           <div className="inline-flex items-center gap-1.5 rounded-full border border-gold-500/50 bg-cream-50 px-4 py-1 shadow-sm">
             <ShieldCheck className="h-4 w-4 text-maroon-700" />
             <span className="font-cinzel text-xs font-bold uppercase tracking-widest text-maroon-800">
-              Privacy Policy • தனியுரிமைக் கொள்கை
+              Privacy Policy
             </span>
           </div>
           <h1 className="mt-3 font-display text-3xl sm:text-4xl font-bold text-maroon-950">

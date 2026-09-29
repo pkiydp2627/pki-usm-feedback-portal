@@ -3,22 +3,22 @@ import { Target, Eye, HeartHandshake, Users2, Sparkles, Flame } from 'lucide-rea
 const pillars = [
   {
     icon: Target,
-    title: 'Our Mission • நோக்கம்',
+    title: 'Our Mission',
     body: 'To represent, support, and uplift Indian students at Universiti Sains Malaysia across academic excellence, cultural identity, welfare protection, and holistic student growth.',
   },
   {
     icon: Eye,
-    title: 'Our Vision • பார்வை',
-    body: '"Your Voice, Our Responsibility." (உங்களின் குரல், எங்கள் பொறுப்பு). A leadership committed to listening first and acting with unwavering accountability.',
+    title: 'Our Vision',
+    body: '"Your Voice, Our Responsibility." A leadership committed to listening first and acting with unwavering accountability.',
   },
   {
     icon: HeartHandshake,
-    title: 'How We Work • செயல்முறை',
+    title: 'How We Work',
     body: 'Through open forums, emergency welfare assistance, celebratory cultural festivals, sports tournaments, and now, a standing 24/7 digital feedback portal.',
   },
   {
     icon: Users2,
-    title: 'Who We Serve • சேவை',
+    title: 'Who We Serve',
     body: 'Every Indian student across USM — undergraduate and postgraduate — regardless of school, campus, or year of study.',
   },
 ];
@@ -33,14 +33,14 @@ export default function About() {
           <div className="inline-flex items-center gap-1.5 rounded-full border border-gold-500/50 bg-cream-50 px-4 py-1 shadow-sm">
             <Flame className="h-3.5 w-3.5 text-gold-500 diya-glow" />
             <span className="font-cinzel text-xs font-bold uppercase tracking-widest text-maroon-800">
-              About PKI USM • எங்களைப் பற்றி
+              About PKI USM
             </span>
           </div>
           <h1 className="mt-3 font-display text-3xl font-bold text-maroon-950 sm:text-5xl">
             Persatuan Kebudayaan India
           </h1>
-          <p className="mt-2 font-tamil text-lg font-semibold text-maroon-800">
-            இந்திய கலாச்சார சங்கம், யுனிவர்சிட்டி சைன்ஸ் மலேசியா
+          <p className="mt-2 text-base font-semibold text-maroon-800">
+            Indian Cultural Association, Universiti Sains Malaysia
           </p>
           <div className="mx-auto mt-3 h-0.5 w-20 bg-gradient-to-r from-transparent via-gold-500 to-transparent" />
         </div>
@@ -73,7 +73,7 @@ export default function About() {
             </p>
           </div>
           <h2 className="mt-3 font-display text-2xl sm:text-3xl font-bold text-cream-50">
-            Empowering Every Student Voice (குரல்)
+            Empowering Every Student Voice
           </h2>
           <p className="mt-3 text-sm sm:text-base leading-relaxed text-cream-100/85">
             This digital portal is our pledge fulfilled. No student concern should ever be overlooked

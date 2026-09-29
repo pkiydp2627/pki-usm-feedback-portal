@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Phone, Instagram, Mail, Flame, Sparkles } from 'lucide-react';
 
 const myDetails = {
-  position: 'PKI President • தலைவர்',
+  position: 'PKI President',
   phone: '+60 11-2966 8254',
   instagram: '_sahen.kathi_',
   email: 'pki.ydp2627@gmail.com',
@@ -17,7 +17,7 @@ export default function Contact() {
         <div className="inline-flex items-center gap-1.5 rounded-full border border-gold-500/50 bg-cream-50 px-4 py-1 shadow-sm">
           <Flame className="h-3.5 w-3.5 text-gold-500 diya-glow" />
           <span className="font-cinzel text-xs font-bold uppercase tracking-widest text-maroon-800">
-            Reach Out • தொடர்புக்கு
+            Reach Out
           </span>
         </div>
 

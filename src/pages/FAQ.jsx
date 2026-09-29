@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     q: 'Why was this platform built under Manifesto Initiative #2?',
-    a: 'PKI believes in listening with humility and acting with strength. The name "குரல்" (Kural) reflects Thirukkural 411: "செல்வத்துள் செல்வம் செவிச்செல்வம்" — that listening to our community is the highest wealth and honor.',
+    a: 'PKI believes in listening with humility and acting with strength. The name Kural reflects Thirukkural 411 ("The wealth of all wealth is the wealth gained through listening") — that listening to our student community is the highest honor.',
   },
 ];
 
@@ -40,7 +40,7 @@ export default function FAQ() {
           <div className="inline-flex items-center gap-1.5 rounded-full border border-gold-500/50 bg-cream-50 px-4 py-1 shadow-sm">
             <HelpCircle className="h-3.5 w-3.5 text-gold-500" />
             <span className="font-cinzel text-xs font-bold uppercase tracking-widest text-maroon-800">
-              Frequently Asked Questions • வினாடி வினா
+              Frequently Asked Questions
             </span>
           </div>
           <h1 className="mt-3 font-display text-3xl font-bold text-maroon-950 sm:text-4xl">

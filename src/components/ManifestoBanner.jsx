@@ -9,7 +9,7 @@ export default function ManifestoBanner() {
           Manifesto Initiative #2
         </span>
         <p className="text-xs leading-relaxed text-cream-100/90 sm:text-sm">
-          <span className="font-semibold text-gold-300">Empowering Every Student Voice (குரல்).</span>{' '}
+          <span className="font-semibold text-gold-300">Empowering Every Student Voice.</span>{' '}
           A direct, confidential channel for every Indian student at USM to share concerns,
           suggestions, and feedback directly with PKI leadership.
         </p>

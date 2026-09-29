@@ -28,7 +28,7 @@ export default function Navbar() {
               PKI USM
             </span>
             <span className="block text-[10px] font-cinzel uppercase tracking-[0.18em] text-gold-600 font-semibold">
-              Feedback Portal • குரல்
+              Feedback Portal
             </span>
           </span>
         </Link>

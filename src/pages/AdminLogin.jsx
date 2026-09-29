@@ -37,7 +37,7 @@ export default function AdminLogin() {
           </span>
           <div className="mt-4 flex items-center justify-center gap-1.5 text-xs font-cinzel font-bold text-gold-600 uppercase tracking-widest">
             <Sparkles className="h-3 w-3" />
-            செயற்குழு உள்நுழைவு
+            Committee Access
           </div>
           <h1 className="mt-2 font-display text-2xl font-bold text-maroon-950 sm:text-3xl">
             Committee Login

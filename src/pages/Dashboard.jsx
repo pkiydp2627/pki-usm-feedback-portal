@@ -134,7 +134,7 @@ export default function Dashboard() {
               <Shield className="h-4 w-4" />
             </span>
             <p className="font-cinzel text-xs font-bold uppercase tracking-wider text-maroon-800">
-              PKI Committee Portal • செயற்குழு பலகை
+              PKI Committee Portal
             </p>
           </div>
           <h1 className="mt-1 font-display text-3xl font-bold text-maroon-950 sm:text-4xl">

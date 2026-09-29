@@ -62,20 +62,20 @@ export default function FeedbackForm() {
         </span>
         <div className="mt-4 flex items-center gap-1.5 text-xs font-cinzel font-bold text-gold-600 uppercase tracking-widest">
           <Sparkles className="h-3.5 w-3.5" />
-          கருத்து பெறப்பட்டது • Received
+          Submission Confirmed
         </div>
         <h1 className="mt-3 font-display text-3xl font-bold text-maroon-950 sm:text-4xl">
-          நன்றி • Thank You
+          Thank You
         </h1>
-        <p className="mt-2 font-tamil text-base font-semibold text-maroon-800">
-          உங்களின் குரல் பாதுகாப்பாக PKI செயற்குழுவை அடைந்துள்ளது.
+        <p className="mt-2 text-base font-semibold text-maroon-800">
+          Your feedback has been safely received by the PKI committee.
         </p>
         <p className="mt-3 text-sm leading-relaxed text-maroon-900/80 max-w-md">
           Your feedback is now safely recorded in the PKI committee queue. If you voluntarily provided contact details, a committee representative will follow up with complete confidentiality.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <button onClick={() => setStatus('idle')} className="btn-primary">
-            Submit Another Feedback • மற்றொரு கருத்து
+            Submit Another Feedback
           </button>
           <Link to="/" className="btn-secondary">
             Return to Home
@@ -91,7 +91,7 @@ export default function FeedbackForm() {
 
       <section className="relative mx-auto max-w-2xl">
         <div className="text-center">
-          <p className="eyebrow">Student Voice Portal • குரல் கொடுங்கள்</p>
+          <p className="eyebrow">Student Voice Portal</p>
           <h1 className="mt-2 font-display text-3xl font-bold text-maroon-950 sm:text-4xl">
             Tell PKI What's on Your Mind
           </h1>
@@ -124,7 +124,7 @@ export default function FeedbackForm() {
             <div>
               <span className="flex items-center gap-1.5 text-sm font-bold text-maroon-900">
                 <Lock className="h-4 w-4 text-maroon-700" />
-                Submit this anonymously (முழு அநாமதேயம்)
+                Submit this anonymously
               </span>
               <span className="block text-xs leading-relaxed text-maroon-900/70 mt-0.5">
                 When checked, your name, matric number, and contact info are NEVER recorded or transmitted.
@@ -186,14 +186,14 @@ export default function FeedbackForm() {
 
           {/* Category Dropdown */}
           <div>
-            <label className="label" htmlFor="category">Category • பிரிவு</label>
+            <label className="label" htmlFor="category">Category</label>
             <select
               id="category"
               className="input-field font-medium cursor-pointer"
               value={form.category}
               onChange={(e) => update('category', e.target.value)}
             >
-              <option value="">Select a category / பிரிவைத் தேர்ந்தெடுக்கவும்…</option>
+              <option value="">Select a category…</option>
               {CATEGORIES.map((c) => (
                 <option key={c} value={c}>{c}</option>
               ))}
@@ -203,7 +203,7 @@ export default function FeedbackForm() {
 
           {/* Title */}
           <div>
-            <label className="label" htmlFor="title">Feedback Subject • தலைப்பு</label>
+            <label className="label" htmlFor="title">Feedback Subject</label>
             <input
               id="title"
               type="text"
@@ -217,7 +217,7 @@ export default function FeedbackForm() {
 
           {/* Detailed description */}
           <div>
-            <label className="label" htmlFor="description">Detailed Feedback • விரிவான கருத்து</label>
+            <label className="label" htmlFor="description">Detailed Feedback</label>
             <textarea
               id="description"
               rows={6}
@@ -253,7 +253,7 @@ export default function FeedbackForm() {
                 </>
               ) : (
                 <>
-                  <span>Submit Feedback • சமர்ப்பி</span>
+                  <span>Submit Feedback</span>
                   <ArrowRight className="h-4 w-4" />
                 </>
               )}
