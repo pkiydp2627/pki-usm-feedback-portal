@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,jsx}'],
+  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -81,6 +81,20 @@ export default {
         card: '0 2px 6px -1px rgba(90, 11, 30, 0.08), 0 10px 28px -6px rgba(90, 11, 30, 0.12)',
         'card-hover': '0 4px 12px -2px rgba(90, 11, 30, 0.12), 0 18px 36px -8px rgba(90, 11, 30, 0.18)',
         gold: '0 0 18px rgba(197, 155, 39, 0.35)',
+      },
+      keyframes: {
+        'accordion-down': {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
+        },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
+        },
+      },
+      animation: {
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
       },
     },
   },
