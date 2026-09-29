@@ -1,7 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Sparkles, Flame, HelpCircle, ArrowRight } from 'lucide-react';
+import { HelpCircle } from 'lucide-react';
 
 export const BlurredStagger = ({ text = '' }) => {
   const headingText = text;
@@ -112,52 +111,6 @@ export default function TextRevealFAQs() {
               <p className="text-base sm:text-lg text-maroon-900/80 leading-relaxed max-w-md">
                 Everything you need to know about confidentiality, submission handling, and our committee resolution process.
               </p>
-
-              {/* Mughal Mehrab Arch Card with Direct Contact Action */}
-              <div className="relative mt-8 overflow-hidden rounded-3xl border-2 border-gold-500/40 bg-gradient-to-br from-[#FFFDF9] via-[#FAF3E5] to-[#F5E8D0] p-6 sm:p-7 shadow-lg">
-                <div className="pointer-events-none absolute left-3 top-3 text-gold-500/70 text-xs">✦</div>
-                <div className="pointer-events-none absolute right-3 top-3 text-gold-500/70 text-xs">✦</div>
-
-                <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-maroon-800 text-gold-300 shadow-sm border border-gold-500/30">
-                    <Flame className="h-5 w-5 diya-glow" />
-                  </span>
-                  <div>
-                    <h3 className="font-cinzel text-sm font-bold tracking-wider text-maroon-900">
-                      Have a specific question?
-                    </h3>
-                    <p className="text-xs text-maroon-800/70">
-                      We're here to assist you anytime.
-                    </p>
-                  </div>
-                </div>
-
-                <p className="mt-4 text-xs leading-relaxed text-maroon-950/80 font-medium">
-                  Can’t find what you’re looking for? Reach out directly to the{' '}
-                  <Link
-                    to="/contact"
-                    className="text-maroon-700 font-bold underline decoration-gold-500 decoration-2 hover:text-maroon-900"
-                  >
-                    PKI Executive Committee
-                  </Link>{' '}
-                  for personal assistance, or submit your feedback anonymously.
-                </p>
-
-                <div className="mt-5 pt-4 border-t border-gold-500/30 flex items-center justify-between">
-                  <Link
-                    to="/feedback"
-                    className="inline-flex items-center gap-1.5 text-xs font-cinzel font-bold text-maroon-800 hover:text-maroon-950"
-                  >
-                    <span>Submit Feedback</span>
-                    <ArrowRight className="h-3.5 w-3.5 text-gold-600" />
-                  </Link>
-
-                  <div className="flex items-center gap-1 text-[11px] font-semibold text-gold-700">
-                    <Sparkles className="h-3 w-3" />
-                    <span>Manifesto #2</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 
