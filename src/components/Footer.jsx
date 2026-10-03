@@ -1,107 +1,142 @@
-import { Link } from 'react-router-dom';
-import { Mail, MapPin, Sparkles, Flame, Shield } from 'lucide-react';
+import { Flame, Shield, ArrowUp, MapPin } from 'lucide-react';
 
-export default function Footer() {
+export default function Footer({ onScrollToSection }) {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleScroll = (id) => {
+    if (onScrollToSection) {
+      onScrollToSection(id);
+    } else {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <footer className="border-t-2 border-gold-500/40 bg-gradient-to-b from-maroon-900 to-maroon-950 text-cream-100">
-      {/* Decorative Gold Trim Bar */}
-      <div className="h-1.5 w-full bg-gradient-to-r from-maroon-800 via-gold-400 to-maroon-800 opacity-80" />
+    <footer className="relative border-t-2 border-black bg-[#000000] text-white pt-16 pb-12 px-4 sm:px-6 lg:px-8 select-none z-10">
+      {/* Top Hairline Accent Line */}
+      <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#e10600] to-transparent opacity-80" />
 
-      <div className="mx-auto max-w-6xl px-5 py-12 sm:py-16">
-        <div className="grid gap-10 md:grid-cols-4">
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-gold-400 to-gold-600 text-maroon-950 shadow-md border border-gold-300">
-                <Flame className="h-5 w-5 diya-glow" />
-              </span>
-              <div>
-                <span className="font-condensed text-xl font-bold tracking-tight text-cream-50 uppercase block">
-                  Persatuan Kebudayaan India, USM
+      <div className="mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+          {/* Col 1: Brand & Manifesto */}
+          <div className="md:col-span-6 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 items-center justify-center rounded-[10px] bg-[#260212] border border-[#e10600] text-[#DBB353]">
+                  <Flame className="h-5 w-5 diya-glow" />
                 </span>
-                <span className="text-xs font-mono uppercase tracking-[0.2em] text-gold-400 block font-semibold">
-                  Indian Cultural Association
-                </span>
+                <div>
+                  <span className="font-meat text-2xl font-bold uppercase tracking-[0.06em] text-[#e10600] block leading-none">
+                    PERSATUAN KEBUDAYAAN INDIA
+                  </span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#DBB353] font-semibold mt-0.5 block">
+                    UNIVERSITI SAINS MALAYSIA • குரல்
+                  </span>
+                </div>
               </div>
+
+              <p className="mt-4 font-body text-xs sm:text-sm text-[#ffc7c6] leading-relaxed max-w-md">
+                A confidential, fearless sanctuary for Indian students across every USM campus to share feedback, voice concerns, and drive institutional accountability.
+              </p>
             </div>
 
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-cream-100/75 font-body">
-              A sacred and direct channel for every Indian student at Universiti Sains Malaysia to
-              share their voice with dignity, confidentiality, and purpose.
-            </p>
-
-            <div className="mt-5 rounded-xl border border-gold-500/30 bg-maroon-800/50 p-3.5 max-w-sm">
-              <p className="font-mono text-xs font-bold uppercase tracking-wider text-gold-300">
-                Manifesto Initiative #2
-              </p>
-              <p className="mt-1 font-body text-xs italic text-cream-100/70">
-                "Your Voice, Our Responsibility."
-              </p>
+            <div className="mt-6 inline-flex items-center gap-2 rounded-[15px] bg-[#260212] border border-black px-3.5 py-1.5 max-w-xs">
+              <Shield className="h-3.5 w-3.5 text-[#DBB353]" />
+              <span className="font-mono text-[10px] uppercase tracking-wider text-[#ffc7c6]">
+                Manifesto Initiative #2: Zero Retaliation
+              </span>
             </div>
           </div>
 
-          <div>
-            <p className="font-mono text-xs font-bold uppercase tracking-widest text-gold-400">
-              Navigation
-            </p>
-            <ul className="mt-4 space-y-2.5 text-sm text-cream-100/80 font-body">
+          {/* Col 2: Navigation Links */}
+          <div className="md:col-span-3">
+            <span className="font-meat text-xs uppercase tracking-[0.1em] text-[#DBB353] font-bold block mb-4">
+              SECTION DIRECTORY
+            </span>
+            <ul className="space-y-2.5 font-meat text-sm tracking-wider uppercase text-[#ffc7c6]">
               <li>
-                <Link to="/" className="hover:text-gold-300 transition-colors">
-                  Home
-                </Link>
+                <button
+                  onClick={() => handleScroll('hero')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  01 • THE GATEWAY
+                </button>
               </li>
               <li>
-                <Link to="/feedback" className="hover:text-gold-300 transition-colors">
-                  Submit Feedback
-                </Link>
+                <button
+                  onClick={() => handleScroll('feedback')}
+                  className="hover:text-[#e10600] transition-colors cursor-pointer"
+                >
+                  02 • SUBMIT FEEDBACK
+                </button>
               </li>
               <li>
-                <Link to="/about" className="hover:text-gold-300 transition-colors">
-                  About PKI
-                </Link>
+                <button
+                  onClick={() => handleScroll('about')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  03 • ABOUT & PILLARS
+                </button>
               </li>
               <li>
-                <Link to="/faq" className="hover:text-gold-300 transition-colors">
-                  FAQ
-                </Link>
+                <button
+                  onClick={() => handleScroll('faq')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  04 • FAQ & CLARITY
+                </button>
               </li>
               <li>
-                <Link to="/privacy" className="hover:text-gold-300 transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link to="/committee/login" className="flex items-center gap-1.5 text-gold-400 hover:text-gold-300 transition-colors font-semibold">
-                  <Shield className="h-3.5 w-3.5" />
-                  <span>Committee Dashboard</span>
-                </Link>
+                <button
+                  onClick={() => handleScroll('contact')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  05 • CONTACT & LEADERSHIP
+                </button>
               </li>
             </ul>
           </div>
 
-          <div>
-            <p className="font-mono text-xs font-bold uppercase tracking-widest text-gold-400">
-              Contact PKI
-            </p>
-            <ul className="mt-4 space-y-3 text-sm text-cream-100/80">
-              <li className="flex items-start gap-2.5">
-                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-gold-400" />
-                <a href="mailto:pki.ydp2627@gmail.com" className="hover:text-gold-300 break-all transition-colors">
-                  pki.ydp2627@gmail.com
-                </a>
+          {/* Col 3: Campuses & Address */}
+          <div className="md:col-span-3">
+            <span className="font-meat text-xs uppercase tracking-[0.1em] text-[#DBB353] font-bold block mb-4">
+              USM CAMPUS COVERAGE
+            </span>
+            <ul className="space-y-2 font-mono text-xs text-[#ffc7c6]/80">
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#e10600]" />
+                <span>Main Campus, Gelugor (Penang)</span>
               </li>
-              <li className="flex items-start gap-2.5">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-400" />
-                <span>Universiti Sains Malaysia, 11800 USM, Pulau Pinang, Malaysia</span>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#DBB353]" />
+                <span>Engineering Campus, Nibong Tebal</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#DBB353]" />
+                <span>Health Campus, Kubang Kerian</span>
               </li>
             </ul>
+
+            <button
+              onClick={scrollToTop}
+              className="mt-6 flex items-center gap-2 rounded-[15px] border border-white/20 bg-white/5 px-3.5 py-1.5 font-meat text-xs uppercase tracking-wider text-white hover:bg-[#e10600] hover:border-[#e10600] transition-colors cursor-pointer"
+            >
+              <ArrowUp className="h-3.5 w-3.5" />
+              <span>RETURN TO TOP</span>
+            </button>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-gold-500/20 pt-8 text-xs text-cream-100/60 sm:flex-row">
-          <p>&copy; {new Date().getFullYear()} PKI USM. Manifesto Initiative #2 • KURAL.</p>
-          <p className="flex items-center gap-1">
-            <Sparkles className="h-3 w-3 text-gold-400" />
-            <span>Built for trust, transparency, and Indian student empowerment.</span>
+        {/* Bottom Bar: Copyright & Tamil Proverb */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#ffc7c6]/60">
+          <p>
+            © {new Date().getFullYear()} Persatuan Kebudayaan India (PKI USM). All rights reserved.
+          </p>
+          <p className="font-tamil text-xs text-[#DBB353] opacity-80">
+            செல்வத்துள் செல்வம் செவிச்செல்வம் • திருக்குறள் 411
           </p>
         </div>
       </div>

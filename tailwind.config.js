@@ -4,6 +4,19 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Impossible Foods x South Indian Heritage Palette
+        'velvet-wine': '#260212',
+        'burgundy-stage': '#4f0423',
+        'impossible-red': '#e10600',
+        'blush-highlight': '#ffc7c6',
+        'butcher-black': '#000000',
+        'bone-white': '#ffffff',
+        'temple-gold': '#DBB353',
+        'temple-gold-deep': '#C59B27',
+
+        velvet: '#260212',
+        burgundy: '#4f0423',
+
         maroon: {
           50: '#FDF4F5',
           100: '#FBE6EB',
@@ -71,6 +84,7 @@ export default {
         },
       },
       fontFamily: {
+        'sans-meat': ['"Oswald"', '"Bebas Neue"', 'ui-sans-serif', 'sans-serif'],
         tamil: ['"Noto Serif Tamil"', 'serif'],
         cinzel: ['"Cinzel"', 'serif'],
         condensed: ['"Oswald"', '"Bebas Neue"', 'ui-sans-serif', 'sans-serif'],
@@ -78,6 +92,20 @@ export default {
         body: ['"Plus Jakarta Sans"', '"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
         serif: ['"Cinzel"', 'serif'],
+      },
+      borderRadius: {
+        'impossible-pill': '15px',
+        'impossible-card': '12px',
+        'impossible-feature': '38px',
+      },
+      letterSpacing: {
+        'impossible-display': '0.06em',
+        'impossible-heading': '0.03em',
+        'impossible-ui': '0.02em',
+      },
+      lineHeight: {
+        'impossible-display': '0.73',
+        'impossible-heading': '0.78',
       },
       boxShadow: {
         card: '0 2px 6px -1px rgba(90, 11, 30, 0.08), 0 10px 28px -6px rgba(90, 11, 30, 0.12)',
