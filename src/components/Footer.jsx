@@ -39,7 +39,7 @@ export default function Footer({ onScrollToSection }) {
               </div>
 
               <p className="mt-4 font-body text-xs sm:text-sm text-[#ffc7c6] leading-relaxed max-w-md">
-                A confidential, fearless sanctuary for Indian students across every USM campus to share feedback, voice concerns, and drive institutional accountability.
+                A confidential, fearless sanctuary for Indian students at USM Main Campus (Gelugor) to share feedback, voice concerns, and drive institutional accountability.
               </p>
             </div>
 
@@ -78,7 +78,7 @@ export default function Footer({ onScrollToSection }) {
                   onClick={() => handleScroll('about')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  03 • ABOUT & PILLARS
+                  03 • ABOUT PKI USM
                 </button>
               </li>
               <li>
@@ -103,20 +103,15 @@ export default function Footer({ onScrollToSection }) {
           {/* Col 3: Campuses & Address */}
           <div className="md:col-span-3">
             <span className="font-meat text-xs uppercase tracking-[0.1em] text-[#DBB353] font-bold block mb-4">
-              USM CAMPUS COVERAGE
+              CAMPUS JURISDICTION
             </span>
-            <ul className="space-y-2 font-mono text-xs text-[#ffc7c6]/80">
-              <li className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#e10600]" />
+            <ul className="space-y-2.5 font-mono text-xs text-[#ffc7c6]/80">
+              <li className="flex items-center gap-2 text-white font-medium">
+                <span className="h-2 w-2 rounded-full bg-[#e10600]" />
                 <span>Main Campus, Gelugor (Penang)</span>
               </li>
-              <li className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#DBB353]" />
-                <span>Engineering Campus, Nibong Tebal</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#DBB353]" />
-                <span>Health Campus, Kubang Kerian</span>
+              <li className="text-[11px] text-[#ffc7c6]/60 leading-normal pl-4 border-l border-white/10">
+                Exclusive to Main Campus students. Engineering & Health campuses not covered under this initiative.
               </li>
             </ul>
 

@@ -6,7 +6,7 @@ import { Menu, X, Flame, Shield, ArrowUpRight, ChevronRight, Sparkles } from 'lu
 const SECTIONS = [
   { id: 'hero', num: '01', label: 'HOME / SANCTUARY' },
   { id: 'feedback', num: '02', label: 'VOICE IN (FEEDBACK)' },
-  { id: 'about', num: '03', label: 'ABOUT PKI & PILLARS' },
+  { id: 'about', num: '03', label: 'ABOUT PKI USM' },
   { id: 'faq', num: '04', label: 'FREQUENTLY ASKED' },
   { id: 'contact', num: '05', label: 'DIRECT LINE / CONTACT' },
 ];
@@ -67,11 +67,10 @@ export default function Navbar() {
 
   return (
     <header
-      style={{ backgroundColor: '#18010b' }}
-      className="sticky top-0 z-50 w-full border-b border-white/10 text-white select-none transition-all shadow-md"
+      className="sticky top-0 z-50 w-full bg-[#320014]/95 backdrop-blur-md border-b border-white/10 text-white select-none transition-all shadow-xl"
     >
       {/* Top Hairline kinetic red-gold accent gradient */}
-      <div className="h-[2px] w-full bg-gradient-to-r from-[#e10600] via-[#DBB353] to-[#e10600]" />
+      <div className="h-[2px] w-full bg-gradient-to-r from-[#E60000] via-[#DBB353] to-[#E60000]" />
 
       <div className="mx-auto flex max-w-7xl items-center justify-between px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3">
         {/* Left: Brandmark */}
@@ -79,14 +78,14 @@ export default function Navbar() {
           onClick={() => scrollToSection('hero')}
           className="flex items-center gap-2 sm:gap-2.5 group cursor-pointer text-left focus:outline-none"
         >
-          <span className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#3b031d] to-[#1a010c] border border-[#DBB353]/30 text-[#DBB353] group-hover:scale-105 group-hover:border-[#DBB353] shadow-[0_0_12px_rgba(219,179,83,0.25)] transition-all">
+          <span className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#42041D] to-[#320014] border border-[#DBB353]/30 text-[#DBB353] group-hover:scale-105 group-hover:border-[#DBB353] shadow-[0_0_12px_rgba(219,179,83,0.25)] transition-all">
             <Flame className="h-4 w-4 sm:h-5 sm:w-5 diya-glow text-[#DBB353]" />
           </span>
           <div className="flex flex-col">
-            <span className="font-meat text-base sm:text-lg lg:text-xl font-bold tracking-[0.06em] text-[#e10600] group-hover:text-white transition-colors uppercase leading-none">
+            <span className="font-meat text-base sm:text-lg lg:text-xl font-bold tracking-[0.06em] text-[#E60000] group-hover:text-white transition-colors uppercase leading-none">
               PKI USM
             </span>
-            <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.2em] text-[#ffc7c6] font-semibold mt-0.5">
+            <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.2em] text-[#FFE6D2] font-semibold mt-0.5">
               FEEDBACK PORTAL
             </span>
           </div>
@@ -100,12 +99,19 @@ export default function Navbar() {
               <button
                 key={sec.id}
                 onClick={() => scrollToSection(sec.id)}
-                className={`px-3.5 py-1.5 rounded-full font-meat text-xs tracking-[0.04em] uppercase transition-all duration-150 cursor-pointer ${
+                className={`relative px-3.5 py-1.5 rounded-full font-meat text-xs tracking-[0.04em] uppercase transition-all duration-150 cursor-pointer ${
                   isActive
-                    ? 'bg-[#e10600] text-white font-bold shadow-[0_0_12px_rgba(225,6,0,0.5)]'
-                    : 'text-[#ffc7c6] hover:text-white hover:bg-white/10'
+                    ? 'text-white font-bold'
+                    : 'text-[#FFE6D2]/80 hover:text-white hover:bg-white/10'
                 }`}
               >
+                {isActive && (
+                  <motion.div
+                    layoutId="navActivePill"
+                    className="absolute inset-0 rounded-full bg-[#E60000] shadow-[0_0_12px_rgba(230,0,0,0.5)] -z-10"
+                    transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+                  />
+                )}
                 {sec.num} {sec.label.split(' ')[0]}
               </button>
             );

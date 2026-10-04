@@ -6,7 +6,7 @@ const values = [
   'Uncompromising Confidentiality & Trust',
   'Compassionate Student Welfare',
   'Cultural Pride & Heritage Celebration',
-  'Inclusivity Across All Schools & Campuses',
+  'Inclusivity Across All Schools (Main Campus)',
 ];
 
 export default function About() {
@@ -32,7 +32,7 @@ export default function About() {
           </p>
           <div className="mx-auto mt-3 h-0.5 w-20 bg-gradient-to-r from-transparent via-gold-500 to-transparent" />
           <p className="mt-3 text-center max-w-2xl mx-auto text-sm sm:text-base leading-relaxed text-maroon-900/80 font-body">
-            Established to represent, empower, and advocate for Indian students across every campus
+            Established to represent, empower, and advocate for Indian students at the Main Campus (Gelugor)
             of Universiti Sains Malaysia.
           </p>
         </div>

@@ -44,7 +44,7 @@ export default function ContactSection({ onScrollToSection }) {
             <div className="mt-4 flex flex-wrap gap-2">
               <div className="inline-flex items-center gap-2 rounded-[15px] bg-[#000000] px-3 py-1.5 text-xs font-mono text-[#DBB353] border border-black">
                 <Globe className="h-3.5 w-3.5 text-[#e10600]" />
-                <span>PAN-CAMPUS ADVOCACY • ALL USM CAMPUSES</span>
+                <span>MAIN CAMPUS ADVOCACY • USM MAIN CAMPUS ONLY</span>
               </div>
             </div>
           </div>
@@ -156,32 +156,29 @@ export default function ContactSection({ onScrollToSection }) {
             </div>
           </div>
 
-          {/* Secondary Card: Pan-Campus Advocacy & Executive Access (md:col-span-5, 12px Card) */}
+          {/* Secondary Card: Main Campus Advocacy & Executive Access (md:col-span-5, 12px Card) */}
           <div className="md:col-span-5 flex flex-col justify-between gap-6">
             <div className="rounded-[12px] bg-[#4f0423] border border-black p-6 sm:p-8 flex-1">
               <div className="flex items-center gap-2 mb-3">
                 <Globe className="h-5 w-5 text-[#e10600]" />
                 <h4 className="font-meat text-lg uppercase tracking-wide text-white font-bold">
-                  PAN-CAMPUS ADVOCACY
+                  MAIN CAMPUS ADVOCACY
                 </h4>
               </div>
 
               <p className="font-body text-sm text-[#ffc7c6] leading-relaxed mb-5">
-                PKI USM operates across all Universiti Sains Malaysia campuses as an active student leadership body. We connect directly with students via digital channels, eliminating counter queues and physical office constraints.
+                This portal initiative is dedicated exclusively to students at Universiti Sains Malaysia Main Campus. We connect directly with students via digital channels, eliminating counter queues and physical office constraints.
               </p>
 
-              <div className="space-y-2.5 font-mono text-xs text-white/90">
-                <div className="flex items-center gap-2.5">
-                  <span className="h-2 w-2 rounded-full bg-[#e10600]" />
-                  <span>Main Campus — Gelugor, Penang</span>
+              <div className="space-y-3 font-mono text-xs">
+                <div className="flex items-center gap-2.5 text-white">
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#e10600] animate-pulse" />
+                  <span className="font-bold">Main Campus — Gelugor, Penang</span>
+                  <span className="text-[10px] text-[#DBB353] bg-black/40 px-2 py-0.5 rounded-full border border-[#DBB353]/30">ACTIVE</span>
                 </div>
-                <div className="flex items-center gap-2.5">
-                  <span className="h-2 w-2 rounded-full bg-[#DBB353]" />
-                  <span>Engineering Campus — Nibong Tebal</span>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <span className="h-2 w-2 rounded-full bg-[#DBB353]" />
-                  <span>Health Campus — Kubang Kerian</span>
+                <div className="rounded-lg bg-black/40 border border-white/10 p-3 text-[11px] text-[#ffc7c6]/75 leading-relaxed">
+                  <span className="text-[#DBB353] font-bold block mb-1">ℹ️ SERVICE JURISDICTION NOTE:</span>
+                  This initiative currently operates for <strong className="text-white">Main Campus only</strong>. Engineering Campus (Nibong Tebal) and Health Campus (Kubang Kerian) are not under the scope of this portal.
                 </div>
               </div>
 

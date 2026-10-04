@@ -89,16 +89,6 @@ function MarqueeTape({ text, reverse = false, bg = 'bg-[#000000]', textColor = '
 const TABS = [
   { id: 'vision', label: 'OUR VISION', num: '01', desc: 'Sacred Calling' },
   { id: 'mission', label: 'OUR MISSION', num: '02', desc: 'Direct Action' },
-  { id: 'pillars', label: '6 SACRED PILLARS', num: '03', desc: 'Non-Negotiable' },
-];
-
-const VALUES = [
-  { title: 'Integrity & Advocacy', desc: 'Unyielding defense of student rights across all USM faculties and administration.' },
-  { title: 'Transparent Governance', desc: 'Clear reporting on actions taken, resolutions tracked, and institutional outcomes.' },
-  { title: 'Absolute Confidentiality', desc: 'Zero leakages. Protected channels safeguarding every student from academic retribution.' },
-  { title: 'Compassionate Welfare', desc: 'Rapid relief for medical crises, welfare distress, hostel hardships, and financial distress.' },
-  { title: 'Cultural Pride & Heritage', desc: 'Honoring South Indian Tamil heritage, Thirukkural moral philosophies, and cultural celebrations.' },
-  { title: 'Pan-Campus Inclusivity', desc: 'Serving Main Campus, Engineering Campus (Nibong Tebal), and Health Campus (Kubang Kerian).' },
 ];
 
 export default function AboutSection() {
@@ -316,13 +306,13 @@ export default function AboutSection() {
 
                 <div className="p-6 rounded-[12px] bg-[#4f0423] border border-black flex-1 flex flex-col justify-center">
                   <span className="font-meat text-4xl sm:text-5xl font-bold text-[#DBB353] block">
-                    3
+                    MAIN
                   </span>
                   <span className="font-meat text-xs uppercase tracking-wider text-white mt-1 block">
-                    USM CAMPUSES REPRESENTED
+                    USM MAIN CAMPUS JURISDICTION
                   </span>
                   <p className="font-body text-xs text-[#ffc7c6] mt-2 leading-relaxed">
-                    Main Campus (Gelugor), Engineering Campus (Nibong Tebal), and Health Campus (Kubang Kerian).
+                    Dedicated advocacy, representations, and grievance resolution for students at USM Main Campus (Gelugor).
                   </p>
                 </div>
               </div>
@@ -394,51 +384,6 @@ export default function AboutSection() {
             </motion.div>
           )}
 
-          {activeTab === 'pillars' && (
-            <motion.div
-              key="pillars"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="rounded-[12px] bg-[#4f0423] border border-black p-8 sm:p-10 shadow-xl"
-            >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6 border-b border-black/60 pb-4">
-                <div>
-                  <span className="font-meat text-xs uppercase tracking-[0.2em] text-[#DBB353] font-bold">
-                    FOUNDATIONAL CODEX
-                  </span>
-                  <h4 className="font-meat text-2xl sm:text-3xl font-bold uppercase tracking-wide text-white">
-                    6 SACRED PILLARS (NON-NEGOTIABLE)
-                  </h4>
-                </div>
-                <span className="font-tamil text-sm text-[#ffc7c6]">
-                  அறநெறி • கடமை • ஒழுக்கம்
-                </span>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {VALUES.map((val, idx) => (
-                  <div
-                    key={val.title}
-                    className="p-4 rounded-[12px] bg-[#260212] border border-black hover:border-[#e10600] transition-colors"
-                  >
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#e10600] text-white text-[10px] font-meat font-bold">
-                        0{idx + 1}
-                      </span>
-                      <h5 className="font-meat text-sm uppercase tracking-wide text-white font-bold">
-                        {val.title}
-                      </h5>
-                    </div>
-                    <p className="font-body text-xs sm:text-sm text-[#ffc7c6]/90 leading-relaxed">
-                      {val.desc}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          )}
         </AnimatePresence>
       </div>
     </section>
