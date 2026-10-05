@@ -190,7 +190,7 @@ export default function FeedbackSection() {
                       type="text"
                       value={form.name}
                       onChange={(e) => update('name', e.target.value)}
-                      placeholder="e.g. Priyanthini"
+                      placeholder="Enter your full name"
                       className="w-full rounded-[8px] bg-[#000000] border border-black px-3.5 py-2.5 text-sm text-white placeholder-white/30 focus:border-[#e10600] outline-none"
                     />
                   </div>
@@ -203,7 +203,7 @@ export default function FeedbackSection() {
                       type="text"
                       value={form.matricNumber}
                       onChange={(e) => update('matricNumber', e.target.value)}
-                      placeholder="e.g. 159821"
+                      placeholder="Enter your matric number"
                       className="w-full rounded-[8px] bg-[#000000] border border-black px-3.5 py-2.5 text-sm text-white placeholder-white/30 focus:border-[#e10600] outline-none"
                     />
                   </div>
@@ -251,7 +251,7 @@ export default function FeedbackSection() {
                   type="text"
                   value={form.title}
                   onChange={(e) => update('title', e.target.value)}
-                  placeholder="e.g. Desasiswa Harapan prayer hall timing & water dispenser repair"
+                  placeholder="Enter feedback title..."
                   className="w-full rounded-[8px] bg-[#260212] border border-black px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#e10600] outline-none transition-colors"
                 />
                 {errors.title && (
@@ -268,7 +268,7 @@ export default function FeedbackSection() {
                   rows={5}
                   value={form.description}
                   onChange={(e) => update('description', e.target.value)}
-                  placeholder="Detail what happened, where it happened, who is impacted, and what practical solution PKI leadership should take forward to USM management..."
+                  placeholder="Enter your detailed feedback here..."
                   className="w-full rounded-[8px] bg-[#260212] border border-black p-4 text-sm text-white placeholder-white/30 focus:border-[#e10600] outline-none transition-colors leading-relaxed"
                 />
                 {errors.description && (
