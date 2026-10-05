@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import HeroSection from '../components/sections/HeroSection.jsx';
-import CampusActionTrack from '../components/sections/CampusActionTrack.jsx';
 import FeedbackSection from '../components/sections/FeedbackSection.jsx';
 import AboutSection from '../components/sections/AboutSection.jsx';
 import FAQSection from '../components/sections/FAQSection.jsx';
@@ -32,10 +31,7 @@ export default function Home() {
       {/* 01. The Gateway / Hero Stage */}
       <HeroSection onScrollToSection={scrollToSection} />
 
-      {/* 02. Pinned Horizon Scrub: Campus Action Tracks */}
-      <CampusActionTrack onScrollToSection={scrollToSection} />
-
-      {/* 03. The Crucible / Submit Feedback Form */}
+      {/* 02. The Crucible / Submit Feedback Form */}
       <FeedbackSection />
 
       {/* 03. The Manifesto / About PKI USM & Pillars */}
