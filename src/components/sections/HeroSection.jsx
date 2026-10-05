@@ -166,7 +166,6 @@ export default function HeroSection({ onScrollToSection }) {
         {/* Dynamic Section Heading: Same signature masked reveal animation as Answers (No runaround) */}
         <DynamicSectionHeading
           eyebrow="PERSATUAN KEBUDAYAAN INDIA USM • MAIN CAMPUS ADVOCACY"
-          titleLine1="THE"
           titleLine2="(குரல்)"
           titleLine2Gradient="text-transparent bg-clip-text bg-gradient-to-r from-[#DBB353] via-[#FFE6D2] to-[#E60000]"
           description="The dedicated sanctuary for Indian students at Universiti Sains Malaysia Main Campus (Gelugor). Submit grievances, suggest campus initiatives, or seek council support — totally confidential and acted upon with urgency."
