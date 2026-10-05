@@ -43,17 +43,17 @@ export default function HeroSection({ onScrollToSection }) {
       {/* South Indian Kolam motif texture overlay */}
       <div className="pointer-events-none absolute inset-0 bg-kolam-dark opacity-20" aria-hidden="true" />
 
-      {/* Atmospheric Ambient Light Glows */}
+      {/* Atmospheric Ambient Light Glows (GPU-friendly radial gradients with zero rasterization blur) */}
       <div
-        className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[720px] h-[400px] rounded-full bg-[#E60000]/15 blur-[120px]"
+        className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[720px] h-[400px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(230,0,0,0.18)_0%,transparent_70%)]"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute top-1/3 -right-24 w-96 h-96 rounded-full bg-[#FFE6D2]/10 blur-[100px]"
+        className="pointer-events-none absolute top-1/3 -right-24 w-96 h-96 rounded-full bg-[radial-gradient(circle,rgba(255,230,210,0.12)_0%,transparent_70%)]"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute bottom-10 -left-20 w-80 h-80 rounded-full bg-[#42041D]/60 blur-[90px]"
+        className="pointer-events-none absolute bottom-10 -left-20 w-80 h-80 rounded-full bg-[radial-gradient(circle,rgba(66,4,29,0.7)_0%,transparent_70%)]"
         aria-hidden="true"
       />
 

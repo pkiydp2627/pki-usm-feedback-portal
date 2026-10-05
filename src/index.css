@@ -52,8 +52,14 @@
 }
 
 html {
-  scroll-behavior: smooth;
   background-color: #260212;
+}
+
+/* Enable smooth scrolling only for desktop pointers, preventing touch-scroll jitter on phones */
+@media (hover: hover) and (pointer: fine) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -61,6 +67,47 @@ body {
   background-color: #260212;
   color: #ffffff;
   overflow-x: clip;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Off-thread GPU compositor marquee animations (0 JavaScript overhead) */
+@keyframes marquee-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes marquee-scroll-reverse {
+  from { transform: translate3d(-50%, 0, 0); }
+  to { transform: translate3d(0, 0, 0); }
+}
+
+.animate-marquee-css {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-scroll 24s linear infinite;
+}
+
+.animate-marquee-reverse-css {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-scroll-reverse 24s linear infinite;
+}
+
+/* Clean scrollbar utility for mobile swipeable tracks */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Auto content containment for offscreen sections to eliminate mobile layout recalculations */
+.section-contain {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
 }
 
 ::selection {

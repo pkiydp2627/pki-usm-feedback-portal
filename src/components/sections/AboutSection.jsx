@@ -1,9 +1,9 @@
 import { useState, useRef } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Flame, Target, Compass, Sparkles, Shield, HeartHandshake, Eye, ArrowRight } from 'lucide-react';
 import DynamicSectionHeading from '../ui/DynamicSectionHeading.jsx';
 
-// Scroll-linked word scrubber for Impossible Foods mission manifesto
+// Official PKI USM Mission Manifesto
 const MANIFESTO_TEXT =
   'TO BE THE UNCOMPROMISING PILLAR FOR EVERY INDIAN STUDENT AT UNIVERSITI SAINS MALAYSIA — CULTIVATING A COMMUNITY WHERE EVERY VOICE IS HEARD, EVERY GRIEVANCE IS DEFENDED, AND NO STUDENT WALKS ALONE.';
 
@@ -21,67 +21,42 @@ const HIGHLIGHT_WORDS = [
   'ALONE.',
 ];
 
-function ScrollWordScrubber({ text, progress }) {
+function ManifestoDisplay({ text }) {
   const words = text.split(' ');
 
   return (
-    <div className="font-meat font-bold text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.84] tracking-[0.03em] uppercase text-left max-w-5xl mx-auto my-6 select-none">
+    <div className="font-meat font-bold text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-[0.03em] uppercase text-left max-w-5xl mx-auto my-4 select-none">
       {words.map((word, i) => {
-        // Fast, responsive spread across the scroll range
-        const start = (i / words.length) * 0.82;
-        const end = Math.min(1, start + 0.12);
         const isHighlight = HIGHLIGHT_WORDS.includes(word);
 
         return (
-          <ManifestoWord
+          <span
             key={i}
-            word={word}
-            progress={progress}
-            start={start}
-            end={end}
-            isHighlight={isHighlight}
-          />
+            className={`inline-block mr-2 sm:mr-3 my-1 ${
+              isHighlight
+                ? 'text-[#e10600] font-black drop-shadow-[0_0_8px_rgba(225,6,0,0.5)]'
+                : 'text-white/90'
+            }`}
+          >
+            {word}
+          </span>
         );
       })}
     </div>
   );
 }
 
-function ManifestoWord({ word, progress, start, end, isHighlight }) {
-  const opacity = useTransform(progress, [start, end], [0.25, 1]);
-  const color = useTransform(
-    progress,
-    [start, end],
-    ['rgba(255, 199, 198, 0.30)', isHighlight ? '#e10600' : '#ffffff']
-  );
-  const scale = useTransform(progress, [start, end], [0.98, 1]);
-
-  return (
-    <motion.span
-      style={{ opacity, color, scale }}
-      className={`inline-block mr-2.5 sm:mr-3.5 my-1 transition-transform duration-75 ${
-        isHighlight ? 'drop-shadow-[0_0_12px_rgba(225,6,0,0.4)]' : ''
-      }`}
-    >
-      {word}
-    </motion.span>
-  );
-}
-
-// Kinetic Marquee Punk Tape (Continuous 60fps ribbon)
+// Kinetic Marquee Punk Tape (Runs 100% on browser compositor thread with 0 JS lag)
 function MarqueeTape({ text, reverse = false, bg = 'bg-[#000000]', textColor = 'text-[#DBB353]' }) {
+  const animClass = reverse ? 'animate-marquee-reverse-css' : 'animate-marquee-css';
   return (
     <div className={`w-full overflow-hidden select-none py-2.5 ${bg} border-y border-black`}>
-      <motion.div
-        animate={{ x: reverse ? ['-50%', '0%'] : ['0%', '-50%'] }}
-        transition={{ duration: 24, ease: 'linear', repeat: Infinity }}
-        className="flex whitespace-nowrap font-meat text-xs sm:text-sm font-bold tracking-[0.1em] uppercase"
-      >
+      <div className={`${animClass} whitespace-nowrap font-meat text-xs sm:text-sm font-bold tracking-[0.1em] uppercase`}>
         <span className={`mr-6 ${textColor}`}>{text}</span>
         <span className={`mr-6 ${textColor}`}>{text}</span>
         <span className={`mr-6 ${textColor}`}>{text}</span>
         <span className={`mr-6 ${textColor}`}>{text}</span>
-      </motion.div>
+      </div>
     </div>
   );
 }
@@ -93,41 +68,23 @@ const TABS = [
 
 export default function AboutSection() {
   const containerRef = useRef(null);
-  const manifestoRef = useRef(null);
   const [activeTab, setActiveTab] = useState('vision');
-
-  // Fast, responsive scroll tracking bound directly to the manifesto card
-  const { scrollYProgress: manifestoProgress } = useScroll({
-    target: manifestoRef,
-    offset: ['start 85%', 'center 35%'],
-  });
-
-  // Section-wide scroll for ambient floating shapes
-  const { scrollYProgress: sectionProgress } = useScroll({
-    target: containerRef,
-    offset: ['start end', 'end start'],
-  });
-
-  // Parallax float for irregular organic mask shapes
-  const floatY1 = useTransform(sectionProgress, [0, 1], [-40, 50]);
-  const floatY2 = useTransform(sectionProgress, [0, 1], [40, -60]);
 
   return (
     <section
       id="about"
       ref={containerRef}
-      className="relative min-h-screen w-full py-20 px-4 sm:px-6 lg:px-8 bg-[#260212] overflow-hidden flex flex-col justify-center"
+      className="relative min-h-screen w-full py-20 px-4 sm:px-6 lg:px-8 bg-[#260212] overflow-hidden flex flex-col justify-center section-contain"
     >
       {/* Background South Indian Kolam motif overlay */}
       <div className="pointer-events-none absolute inset-0 bg-kolam-dark opacity-35" aria-hidden="true" />
 
-      {/* Floating Organic Mask Cut-out 1 (Impossible Foods Signature: Irregular Organic Shape) */}
-      <motion.div
+      {/* Floating Organic Mask Cut-out 1 (Desktop only, GPU accelerated) */}
+      <div
         style={{
-          y: floatY1,
           clipPath: 'polygon(14% 0%, 92% 10%, 100% 75%, 82% 100%, 12% 92%, 0% 32%)',
         }}
-        className="pointer-events-none absolute -left-10 top-1/4 z-0 hidden xl:block w-72 h-80 overflow-hidden shadow-none select-none opacity-40 hover:opacity-70 transition-opacity will-change-transform transform-gpu"
+        className="pointer-events-none absolute -left-10 top-1/4 z-0 hidden xl:block w-72 h-80 overflow-hidden shadow-none select-none opacity-40 hover:opacity-70 transition-opacity"
       >
         <img
           src="/images/indian_heritage_hero.jpg"
@@ -137,15 +94,14 @@ export default function AboutSection() {
           className="w-full h-full object-cover scale-110 filter contrast-125 saturate-150"
         />
         <div className="absolute inset-0 bg-[#260212]/30 mix-blend-multiply" />
-      </motion.div>
+      </div>
 
       {/* Floating Organic Mask Cut-out 2 (Right Side) */}
-      <motion.div
+      <div
         style={{
-          y: floatY2,
           clipPath: 'polygon(20% 0%, 100% 18%, 88% 88%, 70% 100%, 0% 82%, 8% 25%)',
         }}
-        className="pointer-events-none absolute -right-12 bottom-1/4 z-0 hidden xl:block w-64 h-72 overflow-hidden shadow-none select-none opacity-35 hover:opacity-60 transition-opacity will-change-transform transform-gpu"
+        className="pointer-events-none absolute -right-12 bottom-1/4 z-0 hidden xl:block w-64 h-72 overflow-hidden shadow-none select-none opacity-35 hover:opacity-60 transition-opacity"
       >
         <img
           src="/images/indian_border_pattern.jpg"
@@ -155,7 +111,7 @@ export default function AboutSection() {
           className="w-full h-full object-cover scale-110 filter contrast-125"
         />
         <div className="absolute inset-0 bg-[#e10600]/25 mix-blend-overlay" />
-      </motion.div>
+      </div>
 
       <div className="relative z-10 mx-auto max-w-6xl w-full">
         {/* Dynamic Section Heading with Kinetic Mask & Bracket Accents */}
@@ -167,7 +123,7 @@ export default function AboutSection() {
             titleLine1="OUR SACRED"
             titleLine2="MISSION"
             titleLine2Color="#e10600"
-            description="READ THE MANIFESTO BELOW — SCROLL TO ILLUMINATE OUR PLEDGE FOR EVERY INDIAN STUDENT."
+            description="READ THE MANIFESTO BELOW — OUR PLEDGE FOR EVERY INDIAN STUDENT AT UNIVERSITI SAINS MALAYSIA."
             align="center"
             size="section"
           />
@@ -183,9 +139,8 @@ export default function AboutSection() {
           />
         </div>
 
-        {/* 2. THE IMPOSSIBLE FOODS SCROLL-SCRUBBED MANIFESTO (Scrolls to light up) */}
+        {/* 2. THE MANIFESTO PLEDGE CARD */}
         <div
-          ref={manifestoRef}
           className="relative my-8 p-6 sm:p-12 rounded-[24px] bg-[#4f0423]/70 border border-black/80 backdrop-blur-sm shadow-2xl"
         >
           {/* Top Eyebrow Tag */}
@@ -194,12 +149,12 @@ export default function AboutSection() {
               THE PLEDGE • சத்தியப்பிரமாணம்
             </span>
             <span className="font-meat text-xs text-[#ffc7c6] uppercase tracking-wider">
-              SCROLL TO ILLUMINATE ▾
+              OFFICIAL MANDATE ▾
             </span>
           </div>
 
-          {/* Interactive Scroll Text Scrubber */}
-          <ScrollWordScrubber text={MANIFESTO_TEXT} progress={manifestoProgress} />
+          {/* Clean High-Performance Manifesto Display */}
+          <ManifestoDisplay text={MANIFESTO_TEXT} />
         </div>
 
         {/* 3. Kinetic Marquee Ribbon 2 (Reverse Direction in Impossible Red) */}

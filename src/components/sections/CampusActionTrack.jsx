@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion';
 import { Shield, Trophy, Sparkles, MessageSquare, HeartHandshake, ArrowRight } from 'lucide-react';
 import EditorialMaskedHeading from '../ui/EditorialMaskedHeading.jsx';
@@ -70,15 +70,23 @@ const TRACK_CARDS = [
 
 export default function CampusActionTrack({ onScrollToSection }) {
   const [selectedCategory, setSelectedCategory] = useState('ALL');
+  const [isMobile, setIsMobile] = useState(false);
   const sectionRef = useRef(null);
 
-  // Track vertical scroll across this 250vh section
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Track vertical scroll across this 250vh section (desktop only)
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start start', 'end end'],
   });
 
-  // Inertial smooth spring for silky horizontal scrub
+  // Inertial smooth spring for silky horizontal scrub on desktop
   const smoothProgress = useSpring(scrollYProgress, {
     stiffness: 90,
     damping: 26,
@@ -105,20 +113,20 @@ export default function CampusActionTrack({ onScrollToSection }) {
     <section
       ref={sectionRef}
       id="action-tracks"
-      className="relative h-[250vh] w-full bg-[#320014] select-none"
+      className="relative h-auto md:h-[250vh] w-full bg-[#320014] select-none section-contain"
     >
-      {/* Sticky Full-Viewport Horizon Scrub Stage */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-between py-12 px-4 sm:px-8 md:px-12 bg-gradient-to-b from-[#320014] via-[#260212] to-[#320014]">
+      {/* Sticky on desktop, natural flow on mobile */}
+      <div className="relative md:sticky md:top-0 h-auto md:h-screen w-full overflow-hidden flex flex-col justify-between py-10 sm:py-12 px-4 sm:px-8 md:px-12 bg-gradient-to-b from-[#320014] via-[#260212] to-[#320014]">
         
-        {/* Ambient Top Glow */}
-        <div className="pointer-events-none absolute top-0 left-1/4 w-96 h-96 bg-[#E60000]/10 rounded-full blur-3xl" />
+        {/* Ambient Top Glow using fast radial gradient instead of heavy blur */}
+        <div className="pointer-events-none absolute top-0 left-1/4 w-96 h-96 rounded-full bg-[radial-gradient(circle,rgba(230,0,0,0.14)_0%,transparent_70%)]" />
 
         {/* Section Header & Category Filters */}
         <div className="relative z-10 max-w-7xl mx-auto w-full pt-4">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-6">
             <div>
               <span className="font-meat text-xs tracking-[0.2em] uppercase text-[#DBB353] font-bold block mb-1">
-                PINNED HORIZON SCRUB • CLUB UNITS & WELFARE
+                OUR UNITS & WELFARE
               </span>
               <EditorialMaskedHeading
                 text="OUR UNITS & ACTIVITIES"
@@ -129,7 +137,7 @@ export default function CampusActionTrack({ onScrollToSection }) {
               />
             </div>
 
-            {/* Category Filter Pills (Spring animated transitions) */}
+            {/* Category Filter Pills */}
             <div className="flex flex-wrap items-center gap-2">
               {CATEGORIES.map((cat) => {
                 const isActive = selectedCategory === cat;
@@ -139,17 +147,10 @@ export default function CampusActionTrack({ onScrollToSection }) {
                     onClick={() => setSelectedCategory(cat)}
                     className={`relative px-4 py-2 rounded-full font-meat text-xs uppercase tracking-wider font-bold transition-all cursor-pointer ${
                       isActive
-                        ? 'text-white'
+                        ? 'text-white bg-[#E60000] shadow-md shadow-[#E60000]/40'
                         : 'text-[#FFE6D2]/70 hover:text-white bg-white/5 border border-white/10 hover:border-white/20'
                     }`}
                   >
-                    {isActive && (
-                      <motion.div
-                        layoutId="activePill"
-                        className="absolute inset-0 rounded-full bg-[#E60000] shadow-md shadow-[#E60000]/40 -z-10"
-                        transition={{ type: 'spring', stiffness: 350, damping: 30 }}
-                      />
-                    )}
                     <span>{cat}</span>
                   </button>
                 );
@@ -158,82 +159,134 @@ export default function CampusActionTrack({ onScrollToSection }) {
           </div>
         </div>
 
-        {/* Horizontal Track Canvas (Scrubbed on X-axis) */}
-        <div className="relative z-10 w-full overflow-visible py-4">
-          <motion.div
-            style={{ x }}
-            className="flex gap-6 sm:gap-8 items-stretch will-change-transform"
-          >
-            <AnimatePresence mode="popLayout">
+        {/* Track Canvas: Native 120Hz smooth swipe on mobile, Pinned Scrub on desktop */}
+        <div className="relative z-10 w-full py-4">
+          {isMobile ? (
+            /* Native Touch Carousel on Mobile (Zero scroll blocking or thread lag) */
+            <div className="flex gap-4 items-stretch overflow-x-auto pb-4 pt-2 px-1 scrollbar-none snap-x snap-mandatory touch-pan-x">
               {filteredCards.map((card) => {
                 const Icon = card.icon;
                 return (
-                  <motion.div
+                  <div
                     key={card.id}
-                    layout
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ type: 'spring', stiffness: 260, damping: 24 }}
-                    whileHover={{ scale: 1.02, y: -4 }}
-                    className="w-[320px] sm:w-[380px] shrink-0 rounded-2xl bg-[#42041D] border border-white/15 hover:border-[#E60000] p-6 sm:p-8 flex flex-col justify-between shadow-2xl transition-colors group cursor-pointer will-change-transform transform-gpu"
+                    className="w-[290px] shrink-0 snap-start rounded-2xl bg-[#42041D] border border-white/15 p-6 flex flex-col justify-between shadow-xl cursor-pointer"
                     onClick={handleActionClick}
                   >
                     <div>
-                      {/* Card Header Badge */}
                       <div className="flex items-center justify-between mb-4">
                         <span className="font-meat text-[11px] uppercase tracking-wider font-bold text-[#FFE6D2] bg-white/10 px-3 py-1 rounded-md">
                           {card.badge}
                         </span>
-                        <div className="w-9 h-9 rounded-xl bg-[#E60000]/20 border border-[#E60000]/40 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                        <div className="w-9 h-9 rounded-xl bg-[#E60000]/20 border border-[#E60000]/40 flex items-center justify-center text-white">
                           <Icon className="w-4 h-4 text-[#FFE6D2]" />
                         </div>
                       </div>
 
-                      {/* Card Title & Desc */}
-                      <h3 className="font-meat font-bold text-xl sm:text-2xl text-white uppercase tracking-wide leading-tight mb-3 group-hover:text-[#FFE6D2] transition-colors">
+                      <h3 className="font-meat font-bold text-xl text-white uppercase tracking-wide leading-tight mb-2">
                         {card.title}
                       </h3>
-                      <p className="font-body text-xs sm:text-sm text-[#FFE6D2]/80 leading-relaxed">
+                      <p className="font-body text-xs text-[#FFE6D2]/80 leading-relaxed">
                         {card.description}
                       </p>
                     </div>
 
-                    {/* Card Footer Metric & Action */}
-                    <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
+                    <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
                       <div>
-                        <span className="font-meat text-base font-bold text-[#DBB353] block leading-none">
+                        <span className="font-meat text-sm font-bold text-[#DBB353] block leading-none">
                           {card.metric}
                         </span>
-                        <span className="font-mono text-[10px] text-[#FFE6D2]/60 uppercase">
+                        <span className="font-mono text-[9px] text-[#FFE6D2]/60 uppercase">
                           {card.metricLabel}
                         </span>
                       </div>
 
-                      <div className="inline-flex items-center gap-1.5 font-meat text-xs text-white uppercase tracking-wider font-bold group-hover:text-[#E60000] transition-colors">
+                      <div className="inline-flex items-center gap-1.5 font-meat text-xs text-[#E60000] uppercase tracking-wider font-bold">
                         <span>{card.actionText}</span>
-                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-3.5 h-3.5" />
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 );
               })}
-            </AnimatePresence>
-          </motion.div>
+            </div>
+          ) : (
+            /* Framer Motion Scrub on Desktop */
+            <div className="overflow-visible">
+              <motion.div
+                style={{ x }}
+                className="flex gap-6 sm:gap-8 items-stretch will-change-transform"
+              >
+                <AnimatePresence mode="popLayout">
+                  {filteredCards.map((card) => {
+                    const Icon = card.icon;
+                    return (
+                      <motion.div
+                        key={card.id}
+                        layout
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        transition={{ type: 'spring', stiffness: 260, damping: 24 }}
+                        whileHover={{ scale: 1.02, y: -4 }}
+                        className="w-[320px] sm:w-[380px] shrink-0 rounded-2xl bg-[#42041D] border border-white/15 hover:border-[#E60000] p-6 sm:p-8 flex flex-col justify-between shadow-2xl transition-colors group cursor-pointer will-change-transform transform-gpu"
+                        onClick={handleActionClick}
+                      >
+                        <div>
+                          <div className="flex items-center justify-between mb-4">
+                            <span className="font-meat text-[11px] uppercase tracking-wider font-bold text-[#FFE6D2] bg-white/10 px-3 py-1 rounded-md">
+                              {card.badge}
+                            </span>
+                            <div className="w-9 h-9 rounded-xl bg-[#E60000]/20 border border-[#E60000]/40 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                              <Icon className="w-4 h-4 text-[#FFE6D2]" />
+                            </div>
+                          </div>
+
+                          <h3 className="font-meat font-bold text-xl sm:text-2xl text-white uppercase tracking-wide leading-tight mb-3 group-hover:text-[#FFE6D2] transition-colors">
+                            {card.title}
+                          </h3>
+                          <p className="font-body text-xs sm:text-sm text-[#FFE6D2]/80 leading-relaxed">
+                            {card.description}
+                          </p>
+                        </div>
+
+                        <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
+                          <div>
+                            <span className="font-meat text-base font-bold text-[#DBB353] block leading-none">
+                              {card.metric}
+                            </span>
+                            <span className="font-mono text-[10px] text-[#FFE6D2]/60 uppercase">
+                              {card.metricLabel}
+                            </span>
+                          </div>
+
+                          <div className="inline-flex items-center gap-1.5 font-meat text-xs text-white uppercase tracking-wider font-bold group-hover:text-[#E60000] transition-colors">
+                            <span>{card.actionText}</span>
+                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                          </div>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </AnimatePresence>
+              </motion.div>
+            </div>
+          )}
         </div>
 
-        {/* Bottom Scroll Progress Scrub Bar */}
+        {/* Bottom Guide Bar */}
         <div className="relative z-10 max-w-7xl mx-auto w-full flex items-center justify-between pt-4 border-t border-white/10 text-xs font-mono text-[#FFE6D2]/60">
           <div className="flex items-center gap-3">
             <span className="text-[10px] uppercase font-meat tracking-widest text-[#DBB353]">
-              SCROLL TO SCRUB UNITS
+              {isMobile ? 'SWIPE HORIZONTALLY TO EXPLORE UNITS →' : 'SCROLL TO SCRUB UNITS'}
             </span>
-            <div className="w-32 h-1 bg-white/10 rounded-full overflow-hidden">
-              <motion.div
-                style={{ scaleX: smoothProgress }}
-                className="h-full bg-gradient-to-r from-[#DBB353] to-[#E60000] origin-left"
-              />
-            </div>
+            {!isMobile && (
+              <div className="w-32 h-1 bg-white/10 rounded-full overflow-hidden">
+                <motion.div
+                  style={{ scaleX: smoothProgress }}
+                  className="h-full bg-gradient-to-r from-[#DBB353] to-[#E60000] origin-left"
+                />
+              </div>
+            )}
           </div>
 
           <span className="hidden sm:inline">
