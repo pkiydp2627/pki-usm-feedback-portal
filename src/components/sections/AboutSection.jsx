@@ -285,19 +285,19 @@ export default function AboutSection() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-6"
+              className="grid grid-cols-1 md:grid-cols-2 gap-6"
             >
               <div className="p-8 rounded-[38px] bg-[#4f0423] border border-black flex flex-col justify-between">
                 <div>
                   <span className="font-meat text-xs text-[#DBB353] uppercase tracking-widest font-bold block mb-2">
                     DIRECTIVE 01
                   </span>
-                  <h4 className="font-meat text-2xl font-bold uppercase text-white">
-                    DIRECT CAMPUS BRIDGE
+                  <h4 className="font-meat text-2xl sm:text-3xl font-bold uppercase text-white">
+                    HERITAGE & CELEBRATION
                   </h4>
                   <div className="h-0.5 w-12 bg-[#e10600] my-3" />
-                  <p className="font-body text-sm text-[#ffc7c6] leading-relaxed">
-                    Maintain an active, fearless communication bridge between students and university executive authorities, ensuring issues are addressed immediately.
+                  <p className="font-body text-sm sm:text-base text-[#ffc7c6] leading-relaxed">
+                    Celebrate South Indian culture, Tamil literature, traditional festivals, and student talents through vibrant campus gatherings and community events.
                   </p>
                 </div>
                 <div className="mt-6 flex items-center gap-2 font-mono text-[11px] text-[#DBB353]">
@@ -310,30 +310,12 @@ export default function AboutSection() {
                   <span className="font-meat text-xs text-[#DBB353] uppercase tracking-widest font-bold block mb-2">
                     DIRECTIVE 02
                   </span>
-                  <h4 className="font-meat text-2xl font-bold uppercase text-white">
-                    ZERO COMPROMISE ADVOCACY
+                  <h4 className="font-meat text-2xl sm:text-3xl font-bold uppercase text-white">
+                    STUDENT WELLBEING
                   </h4>
                   <div className="h-0.5 w-12 bg-[#e10600] my-3" />
-                  <p className="font-body text-sm text-[#ffc7c6] leading-relaxed">
-                    Defend student wellbeing, housing rights, academic fairness, safety protocols, and hostel welfare across all schools and faculties.
-                  </p>
-                </div>
-                <div className="mt-6 flex items-center gap-2 font-mono text-[11px] text-[#DBB353]">
-                  <span>✦ PRIORITY LEVEL 1</span>
-                </div>
-              </div>
-
-              <div className="p-8 rounded-[38px] bg-[#4f0423] border border-black flex flex-col justify-between">
-                <div>
-                  <span className="font-meat text-xs text-[#DBB353] uppercase tracking-widest font-bold block mb-2">
-                    DIRECTIVE 03
-                  </span>
-                  <h4 className="font-meat text-2xl font-bold uppercase text-white">
-                    HERITAGE & CELEBRATION
-                  </h4>
-                  <div className="h-0.5 w-12 bg-[#e10600] my-3" />
-                  <p className="font-body text-sm text-[#ffc7c6] leading-relaxed">
-                    Celebrate South Indian culture, Tamil literature, Thirukkural moral philosophies, and student talents through community festivals and symposiums.
+                  <p className="font-body text-sm sm:text-base text-[#ffc7c6] leading-relaxed">
+                    Provide practical, direct support for students in need, including food assistance, meal relief, and small financial aids.
                   </p>
                 </div>
                 <div className="mt-6 flex items-center gap-2 font-mono text-[11px] text-[#DBB353]">
