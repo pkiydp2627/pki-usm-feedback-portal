@@ -127,11 +127,13 @@ export default function AboutSection() {
           y: floatY1,
           clipPath: 'polygon(14% 0%, 92% 10%, 100% 75%, 82% 100%, 12% 92%, 0% 32%)',
         }}
-        className="pointer-events-none absolute -left-10 top-1/4 z-0 hidden xl:block w-72 h-80 overflow-hidden shadow-none select-none opacity-40 hover:opacity-70 transition-opacity"
+        className="pointer-events-none absolute -left-10 top-1/4 z-0 hidden xl:block w-72 h-80 overflow-hidden shadow-none select-none opacity-40 hover:opacity-70 transition-opacity will-change-transform transform-gpu"
       >
         <img
           src="/images/indian_heritage_hero.jpg"
           alt="South Indian Heritage"
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover scale-110 filter contrast-125 saturate-150"
         />
         <div className="absolute inset-0 bg-[#260212]/30 mix-blend-multiply" />
@@ -143,11 +145,13 @@ export default function AboutSection() {
           y: floatY2,
           clipPath: 'polygon(20% 0%, 100% 18%, 88% 88%, 70% 100%, 0% 82%, 8% 25%)',
         }}
-        className="pointer-events-none absolute -right-12 bottom-1/4 z-0 hidden xl:block w-64 h-72 overflow-hidden shadow-none select-none opacity-35 hover:opacity-60 transition-opacity"
+        className="pointer-events-none absolute -right-12 bottom-1/4 z-0 hidden xl:block w-64 h-72 overflow-hidden shadow-none select-none opacity-35 hover:opacity-60 transition-opacity will-change-transform transform-gpu"
       >
         <img
           src="/images/indian_border_pattern.jpg"
           alt="Tamil Cultural Motifs"
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover scale-110 filter contrast-125"
         />
         <div className="absolute inset-0 bg-[#e10600]/25 mix-blend-overlay" />

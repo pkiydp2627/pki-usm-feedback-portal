@@ -45,14 +45,26 @@ export default function DynamicSectionHeading({
   titleLine1,
   titleLine2,
   titleLine2Color = '#e10600',
+  titleLine2Gradient,
   description,
+  descriptionClassName,
   align = 'center',
   size = 'section',
   showDivider = true,
+  inlineTitle = false,
+  as: Component = 'h2',
 }) {
   const isHero = size === 'hero';
   const isCompact = size === 'compact';
   const isCenter = align === 'center';
+
+  const titleSizeClass = isHero
+    ? inlineTitle
+      ? 'text-5xl sm:text-7xl md:text-8xl lg:text-[112px] xl:text-[128px]'
+      : 'text-[52px] sm:text-[84px] md:text-[120px] lg:text-[160px] leading-[0.76] md:leading-[0.73]'
+    : isCompact
+    ? 'text-[30px] sm:text-[44px] md:text-[56px] lg:text-[68px] leading-[0.85]'
+    : 'text-[38px] sm:text-[62px] md:text-[84px] lg:text-[103px] leading-[0.78] md:leading-[0.75]';
 
   return (
     <div
@@ -64,7 +76,8 @@ export default function DynamicSectionHeading({
       {eyebrow && (
         <motion.div
           initial={{ opacity: 0, y: -10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={isHero ? { opacity: 1, y: 0 } : undefined}
+          whileInView={isHero ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 'some', margin: '150px 0px 0px 0px' }}
           transition={{ duration: 0.4, ease: 'easeOut' }}
           className="inline-flex items-center gap-2 mb-2.5 px-3.5 py-1.5 rounded-[15px] bg-[#000000] border border-white/15 shadow-lg group hover:border-[#e10600]/50 transition-colors"
@@ -103,7 +116,8 @@ export default function DynamicSectionHeading({
       {tamilSub && (
         <motion.div
           initial={{ opacity: 0, y: -6 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={isHero ? { opacity: 1, y: 0 } : undefined}
+          whileInView={isHero ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 'some', margin: '150px 0px 0px 0px' }}
           transition={{ duration: 0.45, delay: 0.05, ease: 'easeOut' }}
           className="flex items-center gap-2 font-tamil text-base sm:text-xl lg:text-2xl font-bold tracking-wide text-[#DBB353] mb-1.5 drop-shadow-[0_2px_10px_rgba(219,179,83,0.3)]"
@@ -118,43 +132,64 @@ export default function DynamicSectionHeading({
       <motion.div
         variants={titleContainerVariants}
         initial="hidden"
-        whileInView="visible"
+        animate={isHero ? 'visible' : undefined}
+        whileInView={isHero ? undefined : 'visible'}
         viewport={{ once: true, amount: 'some', margin: '150px 0px 0px 0px' }}
         className={`w-full flex flex-col ${isCenter ? 'items-center text-center' : 'items-start text-left'}`}
       >
-        {titleLine1 && (
-          <div className={`overflow-hidden w-full flex ${isCenter ? 'justify-center' : 'justify-start'} pb-1`}>
-            <motion.h2
-              variants={maskLineVariants}
-              className={`font-meat font-bold tracking-[0.01em] text-[#ffffff] uppercase drop-shadow-md transition-all duration-300 hover:tracking-[0.03em] ${
-                isHero
-                  ? 'text-[52px] sm:text-[84px] md:text-[120px] lg:text-[160px] leading-[0.76] md:leading-[0.73]'
-                  : isCompact
-                  ? 'text-[30px] sm:text-[44px] md:text-[56px] lg:text-[68px] leading-[0.85]'
-                  : 'text-[38px] sm:text-[62px] md:text-[84px] lg:text-[103px] leading-[0.78] md:leading-[0.75]'
-              }`}
-            >
-              {titleLine1}
-            </motion.h2>
+        {inlineTitle ? (
+          <div className={`overflow-hidden w-full flex ${isCenter ? 'justify-center' : 'justify-start'} items-center flex-wrap gap-x-3 sm:gap-x-5 pt-2 pb-6 sm:pb-8`}>
+            {titleLine1 && (
+              <motion.span
+                variants={maskLineVariants}
+                className={`font-meat font-black tracking-[0.01em] text-[#ffffff] uppercase drop-shadow-md inline-block leading-none ${titleSizeClass}`}
+              >
+                {titleLine1}
+              </motion.span>
+            )}
+            {titleLine2 && (
+              <motion.span
+                variants={maskLineVariants}
+                style={titleLine2Gradient ? undefined : { color: titleLine2Color }}
+                className={`font-meat font-black tracking-[0.01em] drop-shadow-md inline-block leading-tight pt-1 pb-5 sm:pb-7 -translate-y-1 sm:-translate-y-2 ${titleSizeClass} ${
+                  titleLine2Gradient || ''
+                }`}
+              >
+                {titleLine2}
+              </motion.span>
+            )}
           </div>
-        )}
+        ) : (
+          <>
+            {titleLine1 && (
+              <div className={`overflow-hidden w-full flex ${isCenter ? 'justify-center' : 'justify-start'} pb-1`}>
+                <motion.div
+                  variants={maskLineVariants}
+                  className={`font-meat font-bold tracking-[0.01em] text-[#ffffff] uppercase drop-shadow-md transition-all duration-300 hover:tracking-[0.03em] ${titleSizeClass}`}
+                >
+                  {titleLine1}
+                </motion.div>
+              </div>
+            )}
 
-        {titleLine2 && (
-          <div className={`overflow-hidden w-full flex ${isCenter ? 'justify-center' : 'justify-start'} pb-1 mt-1 sm:mt-2`}>
-            <motion.div
-              variants={maskLineVariants}
-              style={{ color: titleLine2Color }}
-              className={`font-meat font-bold tracking-[0.01em] uppercase drop-shadow-md transition-all duration-300 hover:tracking-[0.03em] ${
-                isHero
-                  ? 'text-[52px] sm:text-[84px] md:text-[120px] lg:text-[160px] leading-[0.88] md:leading-[0.84]'
-                  : isCompact
-                  ? 'text-[30px] sm:text-[44px] md:text-[56px] lg:text-[68px] leading-[0.88]'
-                  : 'text-[38px] sm:text-[62px] md:text-[84px] lg:text-[103px] leading-[0.86] md:leading-[0.82]'
-              }`}
-            >
-              {titleLine2}
-            </motion.div>
-          </div>
+            {titleLine2 && (
+              <div className={`overflow-hidden w-full flex ${isCenter ? 'justify-center' : 'justify-start'} pb-1 mt-1 sm:mt-2`}>
+                <motion.div
+                  variants={maskLineVariants}
+                  style={titleLine2Gradient ? undefined : { color: titleLine2Color }}
+                  className={`font-meat font-bold tracking-[0.01em] uppercase drop-shadow-md transition-all duration-300 hover:tracking-[0.03em] ${
+                    isHero
+                      ? 'text-[52px] sm:text-[84px] md:text-[120px] lg:text-[160px] leading-[0.88] md:leading-[0.84]'
+                      : isCompact
+                      ? 'text-[30px] sm:text-[44px] md:text-[56px] lg:text-[68px] leading-[0.88]'
+                      : 'text-[38px] sm:text-[62px] md:text-[84px] lg:text-[103px] leading-[0.86] md:leading-[0.82]'
+                  } ${titleLine2Gradient || ''}`}
+                >
+                  {titleLine2}
+                </motion.div>
+              </div>
+            )}
+          </>
         )}
 
         {/* Dynamic Kinetic Laser Rule Accent */}
@@ -162,7 +197,7 @@ export default function DynamicSectionHeading({
           <motion.div
             variants={dividerVariants}
             style={{ originX: isCenter ? 0.5 : 0 }}
-            className={`h-1 w-20 sm:w-32 bg-gradient-to-r from-[#e10600] via-[#DBB353] to-[#e10600] my-3 rounded-full shadow-[0_0_12px_rgba(225,6,0,0.6)] ${
+            className={`h-1 w-20 sm:w-32 bg-gradient-to-r from-[#e10600] via-[#DBB353] to-[#e10600] my-3.5 rounded-full shadow-[0_0_12px_rgba(225,6,0,0.6)] ${
               isCenter ? 'mx-auto' : ''
             }`}
           />
@@ -173,12 +208,16 @@ export default function DynamicSectionHeading({
       {description && (
         <motion.p
           initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={isHero ? { opacity: 1, y: 0 } : undefined}
+          whileInView={isHero ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 'some', margin: '150px 0px 0px 0px' }}
-          transition={{ duration: 0.45, delay: 0.25, ease: 'easeOut' }}
-          className={`font-meat font-medium text-xs sm:text-sm md:text-base tracking-[0.04em] text-[#ffc7c6] uppercase mt-1 max-w-2xl leading-snug ${
-            isCenter ? 'mx-auto' : ''
-          }`}
+          transition={{ duration: 0.5, delay: 0.28, ease: 'easeOut' }}
+          className={
+            descriptionClassName ||
+            `font-meat font-medium text-xs sm:text-sm md:text-base tracking-[0.04em] text-[#ffc7c6] uppercase mt-1 max-w-2xl leading-snug ${
+              isCenter ? 'mx-auto' : ''
+            }`
+          }
         >
           {description}
         </motion.p>

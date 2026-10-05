@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { MessageSquare, ArrowRight, ChevronDown, Shield, Flame, Sparkles, Building2 } from 'lucide-react';
-import EditorialMaskedHeading from '../ui/EditorialMaskedHeading.jsx';
+import DynamicSectionHeading from '../ui/DynamicSectionHeading.jsx';
 
 export default function HeroSection({ onScrollToSection }) {
   const containerRef = useRef(null);
@@ -65,12 +65,12 @@ export default function HeroSection({ onScrollToSection }) {
       {/* Asset 1: Top-Left (Velocity -0.3) */}
       <motion.div
         style={{ y: yParallax1 }}
-        className="pointer-events-none absolute top-28 left-4 xl:left-12 z-20 hidden md:block select-none"
+        className="pointer-events-none absolute top-28 left-4 xl:left-12 z-20 hidden md:block select-none will-change-transform transform-gpu"
       >
         <motion.div
           animate={{ y: [-8, 8, -8] }}
           transition={{ duration: 3.5, ease: 'easeInOut', repeat: Infinity, delay: 0 }}
-          className="rounded-2xl bg-[#42041D]/90 border border-white/15 p-4 backdrop-blur-md shadow-2xl flex items-center gap-3 w-56 hover:border-[#E60000] transition-colors pointer-events-auto group"
+          className="rounded-2xl bg-[#42041D] border border-white/15 p-4 shadow-2xl flex items-center gap-3 w-56 hover:border-[#E60000] transition-colors pointer-events-auto group"
         >
           <div className="w-10 h-10 rounded-xl bg-[#E60000]/20 border border-[#E60000]/40 flex items-center justify-center shrink-0">
             <Building2 className="w-5 h-5 text-[#FFE6D2] group-hover:scale-110 transition-transform" />
@@ -89,12 +89,12 @@ export default function HeroSection({ onScrollToSection }) {
       {/* Asset 2: Top-Right (Velocity +0.2) */}
       <motion.div
         style={{ y: yParallax2 }}
-        className="pointer-events-none absolute top-32 right-4 xl:right-12 z-20 hidden md:block select-none"
+        className="pointer-events-none absolute top-32 right-4 xl:right-12 z-20 hidden md:block select-none will-change-transform transform-gpu"
       >
         <motion.div
           animate={{ y: [8, -8, 8] }}
           transition={{ duration: 3.5, ease: 'easeInOut', repeat: Infinity, delay: 0.9 }}
-          className="rounded-2xl bg-[#42041D]/90 border border-white/15 p-4 backdrop-blur-md shadow-2xl flex items-center gap-3 w-56 hover:border-[#DBB353] transition-colors pointer-events-auto group"
+          className="rounded-2xl bg-[#42041D] border border-white/15 p-4 shadow-2xl flex items-center gap-3 w-56 hover:border-[#DBB353] transition-colors pointer-events-auto group"
         >
           <div className="w-10 h-10 rounded-xl bg-[#DBB353]/20 border border-[#DBB353]/40 flex items-center justify-center shrink-0">
             <Sparkles className="w-5 h-5 text-[#DBB353] group-hover:rotate-12 transition-transform" />
@@ -113,12 +113,12 @@ export default function HeroSection({ onScrollToSection }) {
       {/* Asset 3: Bottom-Left (Velocity -0.15) */}
       <motion.div
         style={{ y: yParallax3 }}
-        className="pointer-events-none absolute bottom-24 left-6 xl:left-14 z-20 hidden lg:block select-none"
+        className="pointer-events-none absolute bottom-24 left-6 xl:left-14 z-20 hidden lg:block select-none will-change-transform transform-gpu"
       >
         <motion.div
           animate={{ y: [-7, 9, -7] }}
           transition={{ duration: 3.5, ease: 'easeInOut', repeat: Infinity, delay: 1.7 }}
-          className="rounded-2xl bg-[#42041D]/90 border border-white/15 p-4 backdrop-blur-md shadow-2xl flex items-center gap-3 w-60 hover:border-[#E60000] transition-colors pointer-events-auto group"
+          className="rounded-2xl bg-[#42041D] border border-white/15 p-4 shadow-2xl flex items-center gap-3 w-60 hover:border-[#E60000] transition-colors pointer-events-auto group"
         >
           <div className="w-10 h-10 rounded-xl bg-[#E60000]/20 border border-[#E60000]/40 flex items-center justify-center shrink-0">
             <Shield className="w-5 h-5 text-[#E60000] group-hover:scale-110 transition-transform" />
@@ -137,12 +137,12 @@ export default function HeroSection({ onScrollToSection }) {
       {/* Asset 4: Bottom-Right (Velocity +0.4) */}
       <motion.div
         style={{ y: yParallax4 }}
-        className="pointer-events-none absolute bottom-28 right-6 xl:right-14 z-20 hidden lg:block select-none"
+        className="pointer-events-none absolute bottom-28 right-6 xl:right-14 z-20 hidden lg:block select-none will-change-transform transform-gpu"
       >
         <motion.div
           animate={{ y: [7, -9, 7] }}
           transition={{ duration: 3.5, ease: 'easeInOut', repeat: Infinity, delay: 2.5 }}
-          className="rounded-2xl bg-[#42041D]/90 border border-white/15 p-4 backdrop-blur-md shadow-2xl flex items-center gap-3 w-60 hover:border-[#DBB353] transition-colors pointer-events-auto group"
+          className="rounded-2xl bg-[#42041D] border border-white/15 p-4 shadow-2xl flex items-center gap-3 w-60 hover:border-[#DBB353] transition-colors pointer-events-auto group"
         >
           <div className="w-10 h-10 rounded-xl bg-[#DBB353]/20 border border-[#DBB353]/40 flex items-center justify-center shrink-0">
             <Flame className="w-5 h-5 text-[#DBB353] group-hover:scale-110 transition-transform" />
@@ -161,51 +161,29 @@ export default function HeroSection({ onScrollToSection }) {
       {/* ========================================================
           CENTER: Large Editorial Typographic Lockup
          ======================================================== */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center items-center text-center my-auto">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center items-center text-center my-auto">
         
-        {/* Top Official Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: -16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-[#FFE6D2] mb-6 shadow-xl"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E60000] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E60000]"></span>
-          </span>
-          <span className="font-meat tracking-[0.18em] text-[11px] sm:text-xs font-semibold uppercase text-white">
-            PERSATUAN KEBUDAYAAN INDIA USM • MAIN CAMPUS ADVOCACY
-          </span>
-        </motion.div>
-
-        {/* Editorial Masked Staggered Heading */}
-        <EditorialMaskedHeading
-          text="THE குரல்"
-          highlightWord="குரல்"
+        {/* Dynamic Section Heading: Same signature masked reveal animation as Answers (No runaround) */}
+        <DynamicSectionHeading
+          eyebrow="PERSATUAN KEBUDAYAAN INDIA USM • MAIN CAMPUS ADVOCACY"
+          titleLine1="THE"
+          titleLine2="(குரல்)"
+          titleLine2Gradient="text-transparent bg-clip-text bg-gradient-to-r from-[#DBB353] via-[#FFE6D2] to-[#E60000]"
+          description="The dedicated sanctuary for Indian students at Universiti Sains Malaysia Main Campus (Gelugor). Submit grievances, suggest campus initiatives, or seek council support — totally confidential and acted upon with urgency."
+          descriptionClassName="mt-4 text-base sm:text-lg md:text-xl text-[#FFE6D2]/80 max-w-2xl font-light leading-relaxed font-body"
+          align="center"
+          size="hero"
+          inlineTitle={true}
+          showDivider={true}
           as="h1"
-          stagger={0.1}
-          duration={0.85}
-          className="font-meat font-black text-6xl sm:text-8xl md:text-9xl lg:text-[130px] tracking-tight uppercase leading-[0.85] text-white max-w-5xl"
-          highlightClassName="text-transparent bg-clip-text bg-gradient-to-r from-[#DBB353] via-[#FFE6D2] to-[#E60000]"
         />
-
-        {/* Subtitle / Value Proposition */}
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.35, ease: 'easeOut' }}
-          className="mt-6 text-base sm:text-lg md:text-xl text-[#FFE6D2]/80 max-w-2xl font-light leading-relaxed"
-        >
-          The dedicated sanctuary for Indian students at Universiti Sains Malaysia Main Campus (Gelugor). Submit grievances, suggest campus initiatives, or seek council support — totally confidential and acted upon with urgency.
-        </motion.p>
 
         {/* Call to Action Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.45, ease: 'easeOut' }}
-          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
+          className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
         >
           <button
             onClick={() => handleScroll('feedback')}

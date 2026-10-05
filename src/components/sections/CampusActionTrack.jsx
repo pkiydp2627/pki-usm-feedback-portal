@@ -176,7 +176,7 @@ export default function CampusActionTrack({ onScrollToSection }) {
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ type: 'spring', stiffness: 260, damping: 24 }}
                     whileHover={{ scale: 1.02, y: -4 }}
-                    className="w-[320px] sm:w-[380px] shrink-0 rounded-2xl bg-[#42041D]/90 border border-white/15 hover:border-[#E60000] p-6 sm:p-8 flex flex-col justify-between backdrop-blur-md shadow-2xl transition-colors group cursor-pointer"
+                    className="w-[320px] sm:w-[380px] shrink-0 rounded-2xl bg-[#42041D] border border-white/15 hover:border-[#E60000] p-6 sm:p-8 flex flex-col justify-between shadow-2xl transition-colors group cursor-pointer will-change-transform transform-gpu"
                     onClick={handleActionClick}
                   >
                     <div>
