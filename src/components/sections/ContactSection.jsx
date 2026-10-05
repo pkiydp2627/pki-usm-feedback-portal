@@ -1,4 +1,4 @@
-import { Phone, Mail, Instagram, ArrowRight, Flame, Shield, Globe } from 'lucide-react';
+import { Phone, Mail, Instagram, ArrowRight, Flame } from 'lucide-react';
 import { motion } from 'framer-motion';
 import DynamicSectionHeading from '../ui/DynamicSectionHeading.jsx';
 
@@ -20,7 +20,7 @@ export default function ContactSection({ onScrollToSection }) {
       {/* Background South Indian Kolam motif */}
       <div className="pointer-events-none absolute inset-0 bg-kolam-dark opacity-35" aria-hidden="true" />
 
-      <div className="relative z-10 mx-auto max-w-6xl w-full">
+      <div className="relative z-10 mx-auto max-w-5xl w-full">
         {/* Top Split: Monumental Typography vs Section Subtitle */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12 border-b border-black/80 pb-8">
           <div className="lg:col-span-7 select-none">
@@ -38,28 +38,21 @@ export default function ContactSection({ onScrollToSection }) {
 
           <div className="lg:col-span-5">
             <p className="font-meat text-sm sm:text-base tracking-[0.03em] uppercase text-[#ffc7c6] leading-relaxed">
-              PKI LEADERSHIP STANDS READY TO LISTEN, ESCALATE, AND PROTECT. REACH OUT VIA DIRECT LINES OR SUBMIT CONFIDENTIALLY THROUGH OUR FEEDBACK FORM.
+              PKI LEADERSHIP STANDS READY TO LISTEN AND SUPPORT. REACH OUT VIA DIRECT LINES OR SUBMIT CONFIDENTIALLY THROUGH OUR FEEDBACK FORM.
             </p>
-
-            <div className="mt-4 flex flex-wrap gap-2">
-              <div className="inline-flex items-center gap-2 rounded-[15px] bg-[#000000] px-3 py-1.5 text-xs font-mono text-[#DBB353] border border-black">
-                <Globe className="h-3.5 w-3.5 text-[#e10600]" />
-                <span>MAIN CAMPUS ADVOCACY • USM MAIN CAMPUS ONLY</span>
-              </div>
-            </div>
           </div>
         </div>
 
-        {/* Structured Directory Grid (Burgundy Stage #4f0423 Cards with motion entry) */}
+        {/* Structured Directory Grid (Burgundy Stage #4f0423 Card with motion entry) */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="grid grid-cols-1 md:grid-cols-12 gap-6"
+          className="max-w-2xl mx-auto w-full"
         >
-          {/* Main Card: President Directory (md:col-span-7, 38px Feature Card) */}
-          <div className="md:col-span-7 rounded-[38px] bg-[#4f0423] border border-black p-8 sm:p-10 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+          {/* Main Card: President Directory */}
+          <div className="rounded-[38px] bg-[#4f0423] border border-black p-8 sm:p-10 shadow-2xl relative overflow-hidden flex flex-col justify-between">
             {/* South Indian Temple Corner Finials */}
             <div className="pointer-events-none absolute left-4 top-4 text-[#DBB353] text-sm">✦</div>
             <div className="pointer-events-none absolute right-4 top-4 text-[#DBB353] text-sm">✦</div>
@@ -153,55 +146,6 @@ export default function ContactSection({ onScrollToSection }) {
                 <Phone className="h-4 w-4 text-[#DBB353]" />
                 <span>DIRECT CALL</span>
               </a>
-            </div>
-          </div>
-
-          {/* Secondary Card: Main Campus Advocacy & Executive Access (md:col-span-5, 12px Card) */}
-          <div className="md:col-span-5 flex flex-col justify-between gap-6">
-            <div className="rounded-[12px] bg-[#4f0423] border border-black p-6 sm:p-8 flex-1">
-              <div className="flex items-center gap-2 mb-3">
-                <Globe className="h-5 w-5 text-[#e10600]" />
-                <h4 className="font-meat text-lg uppercase tracking-wide text-white font-bold">
-                  MAIN CAMPUS ADVOCACY
-                </h4>
-              </div>
-
-              <p className="font-body text-sm text-[#ffc7c6] leading-relaxed mb-5">
-                This portal initiative is dedicated exclusively to students at Universiti Sains Malaysia Main Campus. We connect directly with students via digital channels, eliminating counter queues and physical office constraints.
-              </p>
-
-              <div className="space-y-3 font-mono text-xs">
-                <div className="flex items-center gap-2.5 text-white">
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#e10600] animate-pulse" />
-                  <span className="font-bold">Main Campus — Gelugor, Penang</span>
-                  <span className="text-[10px] text-[#DBB353] bg-black/40 px-2 py-0.5 rounded-full border border-[#DBB353]/30">ACTIVE</span>
-                </div>
-                <div className="rounded-lg bg-black/40 border border-white/10 p-3 text-[11px] text-[#ffc7c6]/75 leading-relaxed">
-                  <span className="text-[#DBB353] font-bold block mb-1">ℹ️ SERVICE JURISDICTION NOTE:</span>
-                  This initiative currently operates for <strong className="text-white">Main Campus only</strong>. Engineering Campus (Nibong Tebal) and Health Campus (Kubang Kerian) are not under the scope of this portal.
-                </div>
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-black/60">
-                <span className="font-meat text-xs text-[#DBB353] uppercase tracking-wider block font-bold mb-1">
-                  DIRECT EXECUTIVE ACCESS
-                </span>
-                <p className="font-mono text-xs text-[#ffc7c6]/80 leading-relaxed">
-                  Direct WhatsApp, official email, and 24/7 portal transmission. Executive oversight monitors communications continuously for student welfare and representations.
-                </p>
-              </div>
-            </div>
-
-            <div className="rounded-[12px] bg-[#000000] border border-black p-6 sm:p-8">
-              <div className="flex items-center gap-2 mb-2">
-                <Shield className="h-5 w-5 text-[#DBB353]" />
-                <h4 className="font-meat text-base uppercase tracking-wide text-white font-bold">
-                  CONFIDENTIAL GUARANTEE
-                </h4>
-              </div>
-              <p className="font-body text-xs text-[#ffc7c6] leading-relaxed">
-                All communications and representations remain strictly within the protected jurisdiction of PKI USM executive oversight.
-              </p>
             </div>
           </div>
         </motion.div>
